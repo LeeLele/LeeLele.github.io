@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        服务端渲染和浏览器端渲染的区别 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 不积跬步无以至千里，不积小流无以成江海 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>John Doe</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#服务端渲染和浏览器端渲染的区别"><span class="toc-text">服务端渲染和浏览器端渲染的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器端渲染"><span class="toc-text">服务器端渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端渲染"><span class="toc-text">客户端渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#了解三个专业名词"><span class="toc-text">了解三个专业名词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器端渲染的优缺点"><span class="toc-text">服务器端渲染的优缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#优点："><span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点："><span class="toc-text">缺点：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端渲染的优缺点"><span class="toc-text">客户端渲染的优缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#优点：-1"><span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点：-1"><span class="toc-text">缺点：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用服务器渲染还是浏览器渲染"><span class="toc-text">使用服务器渲染还是浏览器渲染</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 不积跬步无以至千里，不积小流无以成江海 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        服务端渲染和浏览器端渲染的区别
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-11-08 11:21:35</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="服务端渲染和浏览器端渲染的区别"><a href="#服务端渲染和浏览器端渲染的区别" class="headerlink" title="服务端渲染和浏览器端渲染的区别"></a>服务端渲染和浏览器端渲染的区别</h1><h3 id="服务器端渲染"><a href="#服务器端渲染" class="headerlink" title="服务器端渲染"></a>服务器端渲染</h3><p>   在早期的时候，由于页面比较简单，前后端分离还没有做的比较完善，所以当时一般页面渲染还是在服务端完成html文件的拼装，然后浏览器接收到这个文件，就可以直接解析展示</p>
+<h3 id="客户端渲染"><a href="#客户端渲染" class="headerlink" title="客户端渲染"></a>客户端渲染</h3><p>伴随着ajax的兴起，使得现在越来越崇尚前后端分离的开 发方式。后端不再提供完整的html页面，而是提供一些API使得前端可以获取需要的json数据，然后前端拿到数据后在前端完成html页面的拼装，然后展示在浏览器上，这就是客户端渲染</p>
+<h3 id="了解三个专业名词"><a href="#了解三个专业名词" class="headerlink" title="了解三个专业名词"></a>了解三个专业名词</h3><ol>
+<li>SPA：单页面应用，只有一张Web页面的应用，单页面跳转仅刷新局部资源，公共资源只需加载一次。</li>
+<li>SEO：搜索引擎优化。应为SPA单页面应用的数据是通过Ajax来获取，难保证页面被搜索到，由此诞生了SSR</li>
+<li>SSR：服务端渲染，更快的响应时间，不用等待所有的js都下载完成，显示器便能显示出比较完整的页面；更好的SSR，我们可以将SEO关键信息直接在后台渲染成html，从而保证了搜索引擎可以提取到相应数据。</li>
+</ol>
+<h3 id="服务器端渲染的优缺点"><a href="#服务器端渲染的优缺点" class="headerlink" title="服务器端渲染的优缺点"></a>服务器端渲染的优缺点</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
+<li>前端耗时少。后端拼接html 浏览器只需要渲染</li>
+<li>有利于SEO。后端你有完整的html页面，爬虫更容易获取信息。</li>
+<li>无需占用客户端资源。解析模板有后端来做，对于客户端的资源占用少，省电</li>
+<li>后端生成静态化文件。即缓存片段，减少了类似页面的数据加载，加载页面更高效。<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4></li>
+<li>不利于前后端分离。开发效率低，对于前端复杂度高的项目，不利于项目的开发。后端任务繁重</li>
+<li>占用服务器的资源。服务器完成html模板的解析，如果请求次数多对服务器造成一定的访问压力。</li>
+</ol>
+<h3 id="客户端渲染的优缺点"><a href="#客户端渲染的优缺点" class="headerlink" title="客户端渲染的优缺点"></a>客户端渲染的优缺点</h3><h4 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a>优点：</h4><ol>
+<li>前后端分离，前端专注于前端UI，后端专注于api开发，且前端有更多的选择性，而不需要遵循后端特定的模板。</li>
+<li>体验更好。比如，我们将网站做成SPA或者部分内容做成SPA，这样，尤其是移动端，可以使体验更接近于原生app<h4 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h4></li>
+<li>前端响应较慢。如果是客户端渲染，前端还要进行拼接字符串的过程，需要耗费额外的时间，不如服务器端渲染速度快。</li>
+<li>不利于SEO。目前比如百度、谷歌的爬虫对于SPA都是不认的，只是记录了一个页面，所以SEO很差。</li>
+</ol>
+<h3 id="使用服务器渲染还是浏览器渲染"><a href="#使用服务器渲染还是浏览器渲染" class="headerlink" title="使用服务器渲染还是浏览器渲染"></a>使用服务器渲染还是浏览器渲染</h3><p>还是要根据具体的实际情况进行选择，比如企业级网站，主要功能是展示而没有复杂的交互，并且需要良好的SEO，则这时我们就需要使用服务器端渲染；而类似后台管理页面，交互性比较强，不需要seo的考虑，那么就可以使用客户端渲染。<br>另外，具体使用何种渲染方法并不是绝对的，比如现在一些网站采用了首屏服务器端渲染，即对于用户最开始打开的那个页面采用的是服务器端渲染，这样就保证了渲染速度，而其他的页面采用客户端渲染，这样就完成了前后端分离。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
