@@ -11,7 +11,7 @@
 
     <title>
         
-        
+        vue的优点 - undefined
         
     </title>
 
@@ -65,7 +65,7 @@
                     <span>标签</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
                     <span>存档</span>
@@ -80,6 +80,10 @@
             
         </ul>
     </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-轻量级的框架"><span class="toc-text">1.轻量级的框架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-双向数据绑定"><span class="toc-text">2.双向数据绑定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-组件化"><span class="toc-text">3.组件化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-视图、数据、结构分离"><span class="toc-text">4.视图、数据、结构分离</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-虚拟DOM"><span class="toc-text">5.虚拟DOM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-各种指令-过滤器"><span class="toc-text">6.各种指令;过滤器</span></a></li></ol>
+</div>
     
 </div>
 
@@ -107,80 +111,36 @@
         
 
 
-<!-- 归档列表 -->
+<div class="post-container">
+    <div class="post-title">
+        vue的优点
+    </div>
 
-<div class="archives-container">
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-11-09 20:08:04</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>##vue的优点</p>
+<h4 id="1-轻量级的框架"><a href="#1-轻量级的框架" class="headerlink" title="1.轻量级的框架"></a>1.轻量级的框架</h4><p> 只关注视图层，是一个构建数据的视图集合，大小只有几十kb</p>
+<h4 id="2-双向数据绑定"><a href="#2-双向数据绑定" class="headerlink" title="2.双向数据绑定"></a>2.双向数据绑定</h4><h4 id="3-组件化"><a href="#3-组件化" class="headerlink" title="3.组件化"></a>3.组件化</h4><p>实现了html的封装和重用，在构建单页面应用方面有很大的优势</p>
+<h4 id="4-视图、数据、结构分离"><a href="#4-视图、数据、结构分离" class="headerlink" title="4.视图、数据、结构分离"></a>4.视图、数据、结构分离</h4><p>数据的更改更为简单,不需要进行逻辑代码的修改,只需要操作数据就能完成相关操作</p>
+<h4 id="5-虚拟DOM"><a href="#5-虚拟DOM" class="headerlink" title="5.虚拟DOM"></a>5.虚拟DOM</h4><p>不再使用原生的dom操作节点,极大解放dom操作,但具体操作的还是dom不过是换了另一种方式</p>
+<h4 id="6-各种指令-过滤器"><a href="#6-各种指令-过滤器" class="headerlink" title="6.各种指令;过滤器"></a>6.各种指令;过滤器</h4>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
 
-<div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2019">
-                    <span class="tag-text">2019</span>
-                </span>
-    <ul>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>11-09</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/11/09/vue的优点/">
-                        <span>
-                            vue的优点
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>11-08</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/11/08/服务器端渲染和客户端渲染/">
-                        <span>
-                            服务端渲染和浏览器端渲染的区别
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>11-06</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/11/06/string/">
-                        <span>
-                            string
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>11-06</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/11/06/js数组的创建和常用的一些方法/">
-                        <span>
-                            js数组的创建和常用的一些方法
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
+        <div id="lv-container">
+        </div>
 
-    </ul>
-</div>
-
+    </div>
 </div>
 
     </div>
@@ -221,7 +181,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = ""
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
