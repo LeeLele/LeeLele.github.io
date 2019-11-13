@@ -1,130 +1,357 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang=zh>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-
-    <title>
-        
-        js数组的创建和常用的一些方法 - undefined
-        
-    </title>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
-    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
-    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <!-- ga & ba script hoook -->
-    <script></script>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>js数组的创建和常用的一些方法 | Hexo</title>
+  <meta name="description" content="js数组的创建和常用的一些方法数组的概念   有序的元素序列 数组的创建方式 字面量创建数组  1234var arr = [1,2,3,4,5];console.log(arr.length);&#x2F;&#x2F;获取数组长度console.log(arr[2]);&#x2F;&#x2F;获取索引为2的数组元素arr[1] = 100;&#x2F;&#x2F;修改数组中索引为1的数组元素  构造函数方式创建数组  1234&#x2F;&#x2F;Array是一个构造函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js数组的创建和常用的一些方法">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;06&#x2F;js%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95&#x2F;index.html">
+<meta property="og:site_name" content="TL·Blog">
+<meta property="og:description" content="js数组的创建和常用的一些方法数组的概念   有序的元素序列 数组的创建方式 字面量创建数组  1234var arr = [1,2,3,4,5];console.log(arr.length);&#x2F;&#x2F;获取数组长度console.log(arr[2]);&#x2F;&#x2F;获取索引为2的数组元素arr[1] = 100;&#x2F;&#x2F;修改数组中索引为1的数组元素  构造函数方式创建数组  1234&#x2F;&#x2F;Array是一个构造函数">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-11-08T08:44:27.208Z">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2019/11/06/js%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="TL·Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
 </head>
 
-<body>
 
-<div class="site-nav-toggle" id="site-nav-toggle">
-    <button>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-    </button>
-</div>
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">昵称</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
 
-<div class="index-about">
-    <i> [不积跬步无以至千里，不积小流无以成江海] </i>
-</div>
-
-<div class="index-container">
-    
-    <div class="index-left">
-        
-<div class="nav" id="nav">
-    <div class="avatar-name">
-        <div class="avatar ">
-            <img src="/" />
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
         </div>
-        <div class="name">
-            <i>李乐乐</i>
-        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
     </div>
-    <div class="contents" id="nav-content">
-        <ul>
-            <li >
-                <a href="/">
-                    <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
-                </a>
-            </li>
-            <li >
-                <a href="/tags">
-                    <i class="iconfont icon-biaoqian1"></i>
-                    <span>标签</span>
-                </a>
-            </li>
-            <li >
-                <a href="/archives">
-                    <i class="iconfont icon-guidang2"></i>
-                    <span>存档</span>
-                </a>
-            </li>
-            <li >
-                <a href="/about/">
-                    <i class="iconfont icon-guanyu2"></i>
-                    <span>关于</span>
-                </a>
-            </li>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
             
-        </ul>
-    </div>
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
     
-        <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#js数组的创建和常用的一些方法"><span class="toc-text">js数组的创建和常用的一些方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的概念"><span class="toc-text">数组的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的创建方式"><span class="toc-text">数组的创建方式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Array构造函数创建数组有一个很大的缺陷，就是不同的参数，会导致创建行为不一致（不建议使用）"><span class="toc-text">Array构造函数创建数组有一个很大的缺陷，就是不同的参数，会导致创建行为不一致（不建议使用）;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组中一些常用的方法"><span class="toc-text">数组中一些常用的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-push"><span class="toc-text">1.push</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#push-方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度（该方法会改变原数组）"><span class="toc-text">push 方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度（该方法会改变原数组）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-pop"><span class="toc-text">2.pop</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#pop方法用于删除数组最后一个元素-，-并返回该元素。（该方法会改变原数组）"><span class="toc-text">pop方法用于删除数组最后一个元素 ， 并返回该元素。（该方法会改变原数组）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-unshift"><span class="toc-text">3.unshift</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#unshift方法用于在数组的第一位置添加元素，并返回添加新元素后的数组长度（该方法会改变元素组）"><span class="toc-text">unshift方法用于在数组的第一位置添加元素，并返回添加新元素后的数组长度（该方法会改变元素组）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-shift"><span class="toc-text">4.shift</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#shift方法用于删除数组的第一个元素，并返回该元素-。（该方法会改变原数组）"><span class="toc-text">shift方法用于删除数组的第一个元素，并返回该元素 。（该方法会改变原数组）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-concat"><span class="toc-text">5.concat</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#concat方法用于合并数组（不会改变原数组）"><span class="toc-text">concat方法用于合并数组（不会改变原数组）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-slice"><span class="toc-text">6.slice</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#slice方法用于复制目标数组的一部分，返回一个新的数组（不会改变原数组）"><span class="toc-text">slice方法用于复制目标数组的一部分，返回一个新的数组（不会改变原数组）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-splice"><span class="toc-text">7.splice</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#splice方法用于删除原数组的一部分成员-并可以在删除的位置的前面添加新的元素，返回一个数组为被删的元素组成（改变了原数组）"><span class="toc-text">splice方法用于删除原数组的一部分成员 并可以在删除的位置的前面添加新的元素，返回一个数组为被删的元素组成（改变了原数组）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#splice第一个参数是删除的起始位置，第二个是被删除的个数，第三个和以后的参数是插入的元素"><span class="toc-text">splice第一个参数是删除的起始位置，第二个是被删除的个数，第三个和以后的参数是插入的元素</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-reverse"><span class="toc-text">8.reverse</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#reverse方法用于颠覆排列数组元素，返回改变后的数组（会改变数组的原顺序）"><span class="toc-text">reverse方法用于颠覆排列数组元素，返回改变后的数组（会改变数组的原顺序）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-sort"><span class="toc-text">9.sort</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#sort方法用于按一定的顺序排列数组元素-默认的顺序是按照字典排序-（会改变元素的顺序）"><span class="toc-text">sort方法用于按一定的顺序排列数组元素  默认的顺序是按照字典排序  （会改变元素的顺序）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-join"><span class="toc-text">10.join</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#join方法用于指定参数作为分割符，将所有的元素连接为一个字符串返回-默认以逗号隔开"><span class="toc-text">join方法用于指定参数作为分割符，将所有的元素连接为一个字符串返回  默认以逗号隔开</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6中新增的数组的方法"><span class="toc-text">ES6中新增的数组的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#静态方法：-Array-isArray"><span class="toc-text">静态方法：  Array.isArray()</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Array-isArray方法返回一个布尔值，表示参数是否为数组。他可以弥补typeof运算符的不足"><span class="toc-text">Array.isArray方法返回一个布尔值，表示参数是否为数组。他可以弥补typeof运算符的不足</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#map"><span class="toc-text">map</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#map方法用于将数组的所有成员依次传入参数函数，然后把每一次的执行结果组成一个新数组返回。（不改变原数组）"><span class="toc-text">map方法用于将数组的所有成员依次传入参数函数，然后把每一次的执行结果组成一个新数组返回。（不改变原数组）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#forEach"><span class="toc-text">forEach</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#forEach方法用于操作数组内的元素执行函数-和-map不一样的是-forEach方法不返回值-，只用来操作数据。-使用方法一致-传入的参数一致-不改变原数组"><span class="toc-text">forEach方法用于操作数组内的元素执行函数 和 map不一样的是 forEach方法不返回值 ，只用来操作数据。  使用方法一致 传入的参数一致  (不改变原数组)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#filter"><span class="toc-text">filter</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#filter方法用于过滤数组成员-满足条件的将会被添加到新数组作为返回值返回。"><span class="toc-text">filter方法用于过滤数组成员 满足条件的将会被添加到新数组作为返回值返回。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#filter-方法的参数是一个函数，所有数组成员依次执行该函数-返回结果为true-的组成新数组返回-（不会改变原数组）该函数的参数为（当前成员，当前位置（索引），数组本身）"><span class="toc-text">filter 方法的参数是一个函数，所有数组成员依次执行该函数 返回结果为true 的组成新数组返回 （不会改变原数组）该函数的参数为（当前成员，当前位置（索引），数组本身）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#raduce"><span class="toc-text">raduce</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#raduce方法一次处理数组的每个元素，最终累计为一个值"><span class="toc-text">raduce方法一次处理数组的每个元素，最终累计为一个值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#raduce方法：参数1是一个函数，该函数的参数有两个-累计变量-当前变量"><span class="toc-text">raduce方法：参数1是一个函数，该函数的参数有两个   累计变量 当前变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#参数2是一个数字-，为累计计算的起始值-不写默认为第一个元素为起始值"><span class="toc-text">参数2是一个数字 ，为累计计算的起始值  不写默认为第一个元素为起始值</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#indexOf"><span class="toc-text">indexOf</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#indexOf方法-返回给定元素在数组中的第一次出现的位置-，如果没有就返回-1；-有两个参数-第一个是-查找的元素-第二个是-开始的位置"><span class="toc-text">indexOf方法 返回给定元素在数组中的第一次出现的位置 ，如果没有就返回-1； 有两个参数 第一个是 查找的元素    第二个是 开始的位置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lastIndexOf"><span class="toc-text">lastIndexOf</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#laseIndexOf方法-返回的是给定元素在数组中的最后一次出现的位置，如果没有就返回-1-indexOf-和-lastIndexOf-这两个方法不能用来搜索NaN，因为这两个方法内部使用严格相等运算符-进行判断-而NaN-NaN-返回的是-false"><span class="toc-text">laseIndexOf方法 返回的是给定元素在数组中的最后一次出现的位置，如果没有就返回-1   indexOf  和  lastIndexOf 这两个方法不能用来搜索NaN，因为这两个方法内部使用严格相等运算符  ===   进行判断   而NaN===NaN  返回的是 false</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#some"><span class="toc-text">some</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#some方法-用于判断数组中是否有符合条件的元素-有一个则返回-true-全部不满足则返回-false"><span class="toc-text">some方法 用于判断数组中是否有符合条件的元素  有一个则返回 true  全部不满足则返回  false</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#every"><span class="toc-text">every</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#every方法用于判断数组中元素是否全部符合条件-全部符合则返回-true-有一个不符合则返回-false"><span class="toc-text">every方法用于判断数组中元素是否全部符合条件 全部符合则返回 true  有一个不符合则返回  false</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find"><span class="toc-text">find</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#find方法用于查找符合条件的第一个元素-返回这元素"><span class="toc-text">find方法用于查找符合条件的第一个元素 返回这元素</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#findIndex"><span class="toc-text">findIndex()</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#findIndex方法用于查找满足条件的第一个元素的下标"><span class="toc-text">findIndex方法用于查找满足条件的第一个元素的下标</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
-</div>
-    
-</div>
-
-
-<div class="search-field" id="search-field">
-    <div class="search-container">
-        <div class="search-input">
-            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input"/>
-            <span id="begin-search">搜索</span>
-        </div>
-        <div class="search-result-container" id="search-result-container">
-
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
         </div>
     </div>
 </div>
 
-        <div class="index-about-mobile">
-            <i> [不积跬步无以至千里，不积小流无以成江海] </i>
-        </div>
-    </div>
     
-    <div class="index-middle">
-        <!-- Main Content -->
+      
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2019/11/10/vue%E5%92%8Creact%E7%9A%84%E5%BC%82%E5%90%8C/" class="title">vue和react的异同</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-11-10T07:08:04.000Z" itemprop="datePublished">2019-11-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2019/11/10/%E8%84%B1%E7%A6%BB%E8%84%9A%E6%89%8B%E6%9E%B6%E4%BD%BF%E7%94%A8webpack%E6%90%AD%E5%BB%BAReact%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="title">脱离脚手架使用webpack搭建React开发环境</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-11-10T07:08:04.000Z" itemprop="datePublished">2019-11-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2019/11/09/vue%E7%9A%84%E4%BC%98%E7%82%B9/" class="title">vue的优点</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-11-09T12:08:04.000Z" itemprop="datePublished">2019-11-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2019/11/08/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%B2%E6%9F%93/" class="title">服务端渲染和浏览器端渲染的区别</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-11-08T03:21:35.000Z" itemprop="datePublished">2019-11-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2019/11/06/string/" class="title">string</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-11-06T08:30:59.418Z" itemprop="datePublished">2019-11-06</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-js数组的创建和常用的一些方法" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js数组的创建和常用的一些方法
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/11/06/js%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/" class="article-date">
+	  <time datetime="2019-11-06T07:08:04.000Z" itemprop="datePublished">2019-11-06</time>
+	</a>
+</span>
+        
         
 
-
-<div class="post-container">
-    <div class="post-title">
-        js数组的创建和常用的一些方法
-    </div>
-
-    <div class="post-meta">
-        <span class="attr">发布于：<span>2019-11-06 15:08:04</span></span>
         
-        </span>
-        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
-</span>
-</span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/06/js%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
     </div>
-    <div class="post-content ">
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
         <h1 id="js数组的创建和常用的一些方法"><a href="#js数组的创建和常用的一些方法" class="headerlink" title="js数组的创建和常用的一些方法"></a>js数组的创建和常用的一些方法</h1><h3 id="数组的概念"><a href="#数组的概念" class="headerlink" title="数组的概念"></a>数组的概念</h3><p>   有序的元素序列</p>
 <h3 id="数组的创建方式"><a href="#数组的创建方式" class="headerlink" title="数组的创建方式"></a>数组的创建方式</h3><ol>
 <li>字面量创建数组</li>
@@ -160,63 +387,219 @@
 <h3 id="every"><a href="#every" class="headerlink" title="every"></a>every</h3><h5 id="every方法用于判断数组中元素是否全部符合条件-全部符合则返回-true-有一个不符合则返回-false"><a href="#every方法用于判断数组中元素是否全部符合条件-全部符合则返回-true-有一个不符合则返回-false" class="headerlink" title="every方法用于判断数组中元素是否全部符合条件 全部符合则返回 true  有一个不符合则返回  false"></a>every方法用于判断数组中元素是否全部符合条件 全部符合则返回 true  有一个不符合则返回  false</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var  arr = [1,2,3,4,5,6,7];</span><br><span class="line">       console.log(arr.every(function(v,i,arr)&#123;</span><br><span class="line">                return v&gt;0;//ture</span><br><span class="line">        &#125;));</span><br><span class="line">       console.log(arr.every(function(v,i,arr)&#123;</span><br><span class="line">                return v&gt;5;//false</span><br><span class="line">        &#125;));</span><br></pre></td></tr></table></figure>
 <h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><h5 id="find方法用于查找符合条件的第一个元素-返回这元素"><a href="#find方法用于查找符合条件的第一个元素-返回这元素" class="headerlink" title="find方法用于查找符合条件的第一个元素 返回这元素"></a>find方法用于查找符合条件的第一个元素 返回这元素</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var  arr = [1,2,3,4,5,6];</span><br><span class="line">    var res = arr.find(function(v,i,arr)&#123;</span><br><span class="line">           return  v &gt;2;</span><br><span class="line">    &#125;);</span><br><span class="line">   console.log(res);//3</span><br></pre></td></tr></table></figure>
 <h3 id="findIndex"><a href="#findIndex" class="headerlink" title="findIndex()"></a>findIndex()</h3><h5 id="findIndex方法用于查找满足条件的第一个元素的下标"><a href="#findIndex方法用于查找满足条件的第一个元素的下标" class="headerlink" title="findIndex方法用于查找满足条件的第一个元素的下标"></a>findIndex方法用于查找满足条件的第一个元素的下标</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var  arr = [1,2,3,4,5,6];</span><br><span class="line">    console.log(arr.findIndex(function(v,i,arr)&#123;</span><br><span class="line">          return  v &gt; 3;</span><br><span class="line">    &#125;));//3</span><br></pre></td></tr></table></figure>
-        
-        <br />
-        <div id="comment-container">
-        </div>
-        <div id="disqus_thread"></div>
-
-        <div id="lv-container">
-        </div>
-
+      
     </div>
-</div>
-
-    </div>
-</div>
-
-
-<footer class="footer">
-    <ul class="list-inline text-center">
-        
-        
-
-        
-
-        
-
-        
-
-        
-
-    </ul>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
     
-    <p>
-        <span id="busuanzi_container_site_pv">
-            <span id="busuanzi_value_site_pv"></span>PV
-        </span>
-        <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>UV
-        </span>
-        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2019/11/06/js%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/" title="js数组的创建和常用的一些方法" target="_blank" rel="external">http://yoursite.com/2019/11/06/js%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">昵称</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/11/06/string/" title="string"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
 </footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
 
 
 
 
 </body>
-
-<script>
-    // We expose some of the variables needed by the front end
-    window.hexo_search_path = ""
-    window.hexo_root = "/"
-    window.isPost = true
-</script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
 </html>
