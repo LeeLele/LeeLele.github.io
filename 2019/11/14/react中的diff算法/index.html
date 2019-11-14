@@ -25,10 +25,11 @@
 <meta property="og:site_name" content="TL·Blog">
 <meta property="og:description" content="React之diff算法diff算法的作用计算出virtual DOM中真正变化的部分，并只针对该部分进行原生DOM操作，而非重新渲染整个页面 传统diff算法通过循环递归对节点进行依次对比，算法复杂度达到O（n^3）,n是树的节点数 React的diff算法（1）什么是调和？  将virtual DOM树转化成actual DOM树的最少操作的过程称为调和（2）什么是React diff算法 d">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;14&#x2F;react%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95&#x2F;images&#x2F;blog&#x2F;tree.diff.webp">
-<meta property="og:updated_time" content="2019-11-14T00:51:00.825Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;tree-diff.webp">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;component-diff.webp">
+<meta property="og:updated_time" content="2019-11-14T02:11:20.796Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;14&#x2F;react%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95&#x2F;images&#x2F;blog&#x2F;tree.diff.webp">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;tree-diff.webp">
   <!-- Canonical links -->
   <link rel="canonical" href="http://yoursite.com/2019/11/14/react%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95/index.html">
   
@@ -359,10 +360,20 @@
 <h4 id="React的diff算法"><a href="#React的diff算法" class="headerlink" title="React的diff算法"></a>React的diff算法</h4><p>（1）什么是调和？</p>
 <ol>
 <li>将virtual DOM树转化成actual DOM树的最少操作的过程称为调和<br>（2）什么是React diff算法</li>
-<li>diff算法是调和的具体实现<h5 id="tree-diff"><a href="#tree-diff" class="headerlink" title="tree diff"></a>tree diff</h5>React 对树的算法进行了简洁明了的优化，即对树进行分层比较，两棵树只会对同一层次的节点进行比较。React 通过 updateDepth 对 Virtual DOM 树进行层级控制，只会对相同层级内的 DOM 节点进行比较，即同一个父节点下的所有子节点。当发现节点已经不存在，则该节点及其子节点会被完全删除掉，不会用于进一步的比较。这样只需要对树进行一次遍历，便能完成整个 DOM 树的比较。<br><img src="images/blog/tree.diff.webp" alt="tree diff" title="tree diff"></li>
+<li>diff算法是调和的具体实现<h5 id="tree-diff"><a href="#tree-diff" class="headerlink" title="tree diff"></a>tree diff</h5>React 对树的算法进行了简洁明了的优化，即对树进行分层比较，两棵树只会对同一层次的节点进行比较。React 通过 updateDepth 对 Virtual DOM 树进行层级控制，只会对相同层级内的 DOM 节点进行比较，即同一个父节点下的所有子节点。当发现节点已经不存在，则该节点及其子节点会被完全删除掉，不会用于进一步的比较。这样只需要对树进行一次遍历，便能完成整个 DOM 树的比较。<br>如果是跨层级的移动操作，如下图：<br><img src="/img/tree-diff.webp" alt="tree diff"></li>
 </ol>
 <p><strong>因此，当进行跨层级的移动操作，React并不是简单的进行移动，而是进行了删除和创建的操作，会影响到React性能</strong>。应该避免DOM节点的跨层级操作（ps：在开发组件时，保持稳定的 DOM 结构会有助于性能的提升。例如，可以通过控制CSS来达到显示和隐藏，而不是真的添加或移除DOM节点）</p>
 <h4 id="component-diff"><a href="#component-diff" class="headerlink" title="component diff"></a>component diff</h4><p>React 是基于组件构建应用的，对于组件间的比较所采取的策略也是简洁高效的</p>
+<ol>
+<li>如果是同一类型的组件，按照原策略继续比较virtual DOM tree</li>
+<li>如果不是，则将该组件判断为 dirty component，从而替换整个组件下的所有子节点</li>
+<li>对于同一类型的组件，有可能其virtual DOM没有发生任何变化，如果能确切的知道这点则可以节省大量的diff元算时间，因此React允许用户通过shouldComponentUpdate()来判断该组件是否需要进行diff<br>如图:<br><img src="/img/component-diff.webp" alt="component diff"><br>如果组件D和组件G类型不同，但是结构类似。这种情况下，因为类型不同，所以react会删除D，创建G。所以我们可以使用shouldComponentUpdate()返回false来终中断diff算法。这种情况下React diff会影响性能，通常这种情况也很少发生在开发过程中<br>因此，在component diff阶段的主要优化策略就是使用shouldComponentUpdate()方法<h4 id="element-diff"><a href="#element-diff" class="headerlink" title="element diff"></a>element diff</h4>当节点处于同一层级的时候，React diff提供了三种节点操作，分别是：<strong>‘INSERT_MARKUP’(插入)、’MOVE_EXISTING’(移动)、’REMOVE_NODE’(删除)</strong><ol>
+<li><strong>INSERT_MARKUP</strong>,新的component类型不在老集合里，即是全新的节点，需要对新节点执行插入操作</li>
+<li><strong>MOVE_EXISTING</strong>,在老集合有新的component类型，且element是可更新的类型，generateComponentChildren 已调用receiveComponentm，在这种情况下prevChild=nextChild，就需要做移动操作，可以复用以前的DOM节点。</li>
+<li><strong>REMOVE_NODE</strong>, 老component类型，在新集合也有，但对应的element不同则不能直接复用和更新，需要执行删除操作，或者老component不在新的集合里的，也需要执行删除操作。</li>
+</ol>
+</li>
+</ol>
 
       
     </div>
