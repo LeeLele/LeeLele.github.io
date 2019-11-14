@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-14T02:11:20.796Z</updated>
+  <updated>2019-11-13T06:00:56.205Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>react中的diff算法</title>
-    <link href="http://yoursite.com/2019/11/14/react%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95/"/>
-    <id>http://yoursite.com/2019/11/14/react%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95/</id>
-    <published>2019-11-14T00:40:52.820Z</published>
-    <updated>2019-11-14T02:11:20.796Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="React之diff算法"><a href="#React之diff算法" class="headerlink" title="React之diff算法"></a>React之diff算法</h2><h4 id="diff算法的作用"><a href="#diff算法的作用" class="headerlink" title="diff算法的作用"></a>diff算法的作用</h4><p>计算出virtual DOM中真正变化的部分，并只针对该部分进行原生DOM操作，而非重新渲染整个页面</p><h4 id="传统diff算法"><a href="#传统diff算法" class="headerlink" title="传统diff算法"></a>传统diff算法</h4><p>通过循环递归对节点进行依次对比，算法复杂度达到O（n^3）,n是树的节点数</p><h4 id="React的diff算法"><a href="#React的diff算法" class="headerlink" title="React的diff算法"></a>React的diff算法</h4><p>（1）什么是调和？</p><ol><li>将virtual DOM树转化成actual DOM树的最少操作的过程称为调和<br>（2）什么是React diff算法</li><li>diff算法是调和的具体实现<h5 id="tree-diff"><a href="#tree-diff" class="headerlink" title="tree diff"></a>tree diff</h5>React 对树的算法进行了简洁明了的优化，即对树进行分层比较，两棵树只会对同一层次的节点进行比较。React 通过 updateDepth 对 Virtual DOM 树进行层级控制，只会对相同层级内的 DOM 节点进行比较，即同一个父节点下的所有子节点。当发现节点已经不存在，则该节点及其子节点会被完全删除掉，不会用于进一步的比较。这样只需要对树进行一次遍历，便能完成整个 DOM 树的比较。<br>如果是跨层级的移动操作，如下图：<br><img src="/img/tree-diff.webp" alt="tree diff"></li></ol><p><strong>因此，当进行跨层级的移动操作，React并不是简单的进行移动，而是进行了删除和创建的操作，会影响到React性能</strong>。应该避免DOM节点的跨层级操作（ps：在开发组件时，保持稳定的 DOM 结构会有助于性能的提升。例如，可以通过控制CSS来达到显示和隐藏，而不是真的添加或移除DOM节点）</p><h4 id="component-diff"><a href="#component-diff" class="headerlink" title="component diff"></a>component diff</h4><p>React 是基于组件构建应用的，对于组件间的比较所采取的策略也是简洁高效的</p><ol><li>如果是同一类型的组件，按照原策略继续比较virtual DOM tree</li><li>如果不是，则将该组件判断为 dirty component，从而替换整个组件下的所有子节点</li><li>对于同一类型的组件，有可能其virtual DOM没有发生任何变化，如果能确切的知道这点则可以节省大量的diff元算时间，因此React允许用户通过shouldComponentUpdate()来判断该组件是否需要进行diff<br>如图:<br><img src="/img/component-diff.webp" alt="component diff"><br>如果组件D和组件G类型不同，但是结构类似。这种情况下，因为类型不同，所以react会删除D，创建G。所以我们可以使用shouldComponentUpdate()返回false来终中断diff算法。这种情况下React diff会影响性能，通常这种情况也很少发生在开发过程中<br>因此，在component diff阶段的主要优化策略就是使用shouldComponentUpdate()方法<h4 id="element-diff"><a href="#element-diff" class="headerlink" title="element diff"></a>element diff</h4>当节点处于同一层级的时候，React diff提供了三种节点操作，分别是：<strong>‘INSERT_MARKUP’(插入)、’MOVE_EXISTING’(移动)、’REMOVE_NODE’(删除)</strong><ol><li><strong>INSERT_MARKUP</strong>,新的component类型不在老集合里，即是全新的节点，需要对新节点执行插入操作</li><li><strong>MOVE_EXISTING</strong>,在老集合有新的component类型，且element是可更新的类型，generateComponentChildren 已调用receiveComponentm，在这种情况下prevChild=nextChild，就需要做移动操作，可以复用以前的DOM节点。</li><li><strong>REMOVE_NODE</strong>, 老component类型，在新集合也有，但对应的element不同则不能直接复用和更新，需要执行删除操作，或者老component不在新的集合里的，也需要执行删除操作。</li></ol></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;React之diff算法&quot;&gt;&lt;a href=&quot;#React之diff算法&quot; class=&quot;headerlink&quot; title=&quot;React之diff算法&quot;&gt;&lt;/a&gt;React之diff算法&lt;/h2&gt;&lt;h4 id=&quot;diff算法的作用&quot;&gt;&lt;a href=&quot;#diff
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
   
   <entry>
     <title>vue和react的异同</title>
@@ -186,6 +164,50 @@
       
       
         &lt;h2 id=&quot;回流和重绘（Repaint-ang-Reflow）&quot;&gt;&lt;a href=&quot;#回流和重绘（Repaint-ang-Reflow）&quot; class=&quot;headerlink&quot; title=&quot;回流和重绘（Repaint ang Reflow）&quot;&gt;&lt;/a&gt;回流和重绘（Repai
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Git本地常用命令常用命令</title>
+    <link href="http://yoursite.com/2019/06/06/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2019/06/06/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2019-06-06T07:08:04.000Z</published>
+    <updated>2019-11-14T06:21:21.975Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Git本地常用命令常用命令"><a href="#Git本地常用命令常用命令" class="headerlink" title="Git本地常用命令常用命令"></a>Git本地常用命令常用命令</h2><h5 id="1-创建git库"><a href="#1-创建git库" class="headerlink" title="1. 创建git库"></a>1. 创建git库</h5><p>   git init  #在当前目录中生成一个.git 目录（含有.git目录的目录即是git仓库）</p><h6 id="2-注册git用户"><a href="#2-注册git用户" class="headerlink" title="2. 注册git用户"></a>2. 注册git用户</h6><p>用于在团队合作开发中，表明代码作者。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name XXX  #用户名</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email XXX   #用户邮箱</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list  #查看用户信息</span><br></pre></td></tr></table></figure><p>注：加–global，全局设置。</p><h5 id="3-向git库添加修改"><a href="#3-向git库添加修改" class="headerlink" title="3. 向git库添加修改"></a>3. 向git库添加修改</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add[path], #会把对应的目录或文件，添加到stage状态</span><br><span class="line">git add. #会把当前所有的untrack files和changed but not update添加到stage</span><br><span class="line">状态</span><br></pre></td></tr></table></figure><h5 id="4-向版本库提交修改"><a href="#4-向版本库提交修改" class="headerlink" title="4. 向版本库提交修改"></a>4. 向版本库提交修改</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m ****  #提交修改，添加注释</span><br></pre></td></tr></table></figure><h5 id="5-查看当前代码库状态"><a href="#5-查看当前代码库状态" class="headerlink" title="5. 查看当前代码库状态"></a>5. 查看当前代码库状态</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure><h5 id="6-产看版本信息"><a href="#6-产看版本信息" class="headerlink" title="6. 产看版本信息"></a>6. 产看版本信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure><h5 id="7-查看指定版本信息"><a href="#7-查看指定版本信息" class="headerlink" title="7. 查看指定版本信息"></a>7. 查看指定版本信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show sdjf989526562</span><br></pre></td></tr></table></figure><h5 id="8-撤销修改"><a href="#8-撤销修改" class="headerlink" title="8. 撤销修改"></a>8. 撤销修改</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset --head  #回到原来编辑的地方</span><br><span class="line">git reset --head dadf153   #回到指定版本</span><br><span class="line">git reset HEAD^ 回退一个版本</span><br></pre></td></tr></table></figure><h5 id="9-向远端库推送修改"><a href="#9-向远端库推送修改" class="headerlink" title="9. 向远端库推送修改"></a>9. 向远端库推送修改</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin 分支名</span><br></pre></td></tr></table></figure><h2 id="Git团队开发常用的操作指令"><a href="#Git团队开发常用的操作指令" class="headerlink" title="Git团队开发常用的操作指令"></a>Git团队开发常用的操作指令</h2><h5 id="1-获取远端库项目"><a href="#1-获取远端库项目" class="headerlink" title="1. 获取远端库项目"></a>1. 获取远端库项目</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone/pull</span><br></pre></td></tr></table></figure><h5 id="2-团队开发的基本流程（多分支合并一个分支）"><a href="#2-团队开发的基本流程（多分支合并一个分支）" class="headerlink" title="2. 团队开发的基本流程（多分支合并一个分支）"></a>2. 团队开发的基本流程（多分支合并一个分支）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add . #添加改动的文件</span><br><span class="line">git commit -m *** 提交到本地</span><br><span class="line">git pull --rebase #将本地项目与服务器项目合并</span><br><span class="line">git push # 推送到服务器</span><br></pre></td></tr></table></figure><h2 id="Git分支管理"><a href="#Git分支管理" class="headerlink" title="Git分支管理"></a>Git分支管理</h2><h5 id="1-建立分支"><a href="#1-建立分支" class="headerlink" title="1. 建立分支"></a>1. 建立分支</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch AAA #建立分支AAA</span><br></pre></td></tr></table></figure><h5 id="2-分支切换"><a href="#2-分支切换" class="headerlink" title="2. 分支切换"></a>2. 分支切换</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout AAA #切换分支AAA</span><br></pre></td></tr></table></figure><h5 id="3-将分支与主分支合并"><a href="#3-将分支与主分支合并" class="headerlink" title="3. 将分支与主分支合并"></a>3. 将分支与主分支合并</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master #首先切换到主分支</span><br><span class="line">git merge AAA #将分支AAA与主分支合并</span><br></pre></td></tr></table></figure><h5 id="4-当前分支查看"><a href="#4-当前分支查看" class="headerlink" title="4. 当前分支查看"></a>4. 当前分支查看</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch    #默认有master（也称为主枝）</span><br><span class="line">git branch -r  #查看远端库分支</span><br><span class="line">git branch –a  #查看当前所有分支（包括本地分支和远端库分支）</span><br></pre></td></tr></table></figure><h5 id="5-删除分支"><a href="#5-删除分支" class="headerlink" title="5. 删除分支"></a>5. 删除分支</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d AAA #删除分支AAA</span><br></pre></td></tr></table></figure><h5 id="6-切下远端库A分支到本地A分支"><a href="#6-切下远端库A分支到本地A分支" class="headerlink" title="6. 切下远端库A分支到本地A分支"></a>6. 切下远端库A分支到本地A分支</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b  A origin/A  （若本地A分支不存在，则自动新建）</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Git本地常用命令常用命令&quot;&gt;&lt;a href=&quot;#Git本地常用命令常用命令&quot; class=&quot;headerlink&quot; title=&quot;Git本地常用命令常用命令&quot;&gt;&lt;/a&gt;Git本地常用命令常用命令&lt;/h2&gt;&lt;h5 id=&quot;1-创建git库&quot;&gt;&lt;a href=&quot;#1
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>React之diff算法</title>
+    <link href="http://yoursite.com/2019/05/06/react%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95/"/>
+    <id>http://yoursite.com/2019/05/06/react%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95/</id>
+    <published>2019-05-06T07:08:04.000Z</published>
+    <updated>2019-11-14T05:52:15.826Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="React之diff算法"><a href="#React之diff算法" class="headerlink" title="React之diff算法"></a>React之diff算法</h2><h4 id="diff算法的作用"><a href="#diff算法的作用" class="headerlink" title="diff算法的作用"></a>diff算法的作用</h4><p>计算出virtual DOM中真正变化的部分，并只针对该部分进行原生DOM操作，而非重新渲染整个页面</p><h4 id="传统diff算法"><a href="#传统diff算法" class="headerlink" title="传统diff算法"></a>传统diff算法</h4><p>通过循环递归对节点进行依次对比，算法复杂度达到O（n^3）,n是树的节点数</p><h4 id="React的diff算法"><a href="#React的diff算法" class="headerlink" title="React的diff算法"></a>React的diff算法</h4><p>（1）什么是调和？</p><ol><li>将virtual DOM树转化成actual DOM树的最少操作的过程称为调和<br>（2）什么是React diff算法</li><li>diff算法是调和的具体实现<h5 id="tree-diff"><a href="#tree-diff" class="headerlink" title="tree diff"></a>tree diff</h5>React 对树的算法进行了简洁明了的优化，即对树进行分层比较，两棵树只会对同一层次的节点进行比较。React 通过 updateDepth 对 Virtual DOM 树进行层级控制，只会对相同层级内的 DOM 节点进行比较，即同一个父节点下的所有子节点。当发现节点已经不存在，则该节点及其子节点会被完全删除掉，不会用于进一步的比较。这样只需要对树进行一次遍历，便能完成整个 DOM 树的比较。<br>如果是跨层级的移动操作，如下图：<br><img src="/img/tree-diff.webp" alt="tree diff"></li></ol><p><strong>因此，当进行跨层级的移动操作，React并不是简单的进行移动，而是进行了删除和创建的操作，会影响到React性能</strong>。应该避免DOM节点的跨层级操作（ps：在开发组件时，保持稳定的 DOM 结构会有助于性能的提升。例如，可以通过控制CSS来达到显示和隐藏，而不是真的添加或移除DOM节点）</p><h4 id="component-diff"><a href="#component-diff" class="headerlink" title="component diff"></a>component diff</h4><p>React 是基于组件构建应用的，对于组件间的比较所采取的策略也是简洁高效的</p><ol><li>如果是同一类型的组件，按照原策略继续比较virtual DOM tree</li><li>如果不是，则将该组件判断为 dirty component，从而替换整个组件下的所有子节点</li><li>对于同一类型的组件，有可能其virtual DOM没有发生任何变化，如果能确切的知道这点则可以节省大量的diff元算时间，因此React允许用户通过shouldComponentUpdate()来判断该组件是否需要进行diff<br>如图:<br><img src="/img/component-diff.webp" alt="component diff"><br>如果组件D和组件G类型不同，但是结构类似。这种情况下，因为类型不同，所以react会删除D，创建G。所以我们可以使用shouldComponentUpdate()返回false来终中断diff算法。这种情况下React diff会影响性能，通常这种情况也很少发生在开发过程中<br>因此，在component diff阶段的主要优化策略就是使用shouldComponentUpdate()方法<h4 id="element-diff"><a href="#element-diff" class="headerlink" title="element diff"></a>element diff</h4>当节点处于同一层级的时候，React diff提供了三种节点操作，分别是：<strong>‘INSERT_MARKUP’(插入)、’MOVE_EXISTING’(移动)、’REMOVE_NODE’(删除)</strong><ol><li><strong>INSERT_MARKUP</strong>,新的component类型不在老集合里，即是全新的节点，需要对新节点执行插入操作</li><li><strong>MOVE_EXISTING</strong>,在老集合有新的component类型，且element是可更新的类型，generateComponentChildren 已调用receiveComponentm，在这种情况下prevChild=nextChild，就需要做移动操作，可以复用以前的DOM节点。</li><li><strong>REMOVE_NODE</strong>, 老component类型，在新集合也有，但对应的element不同则不能直接复用和更新，需要执行删除操作，或者老component不在新的集合里的，也需要执行删除操作。</li></ol></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;React之diff算法&quot;&gt;&lt;a href=&quot;#React之diff算法&quot; class=&quot;headerlink&quot; title=&quot;React之diff算法&quot;&gt;&lt;/a&gt;React之diff算法&lt;/h2&gt;&lt;h4 id=&quot;diff算法的作用&quot;&gt;&lt;a href=&quot;#diff
       
     
     </summary>
