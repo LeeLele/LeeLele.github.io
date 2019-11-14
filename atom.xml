@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-13T06:00:56.205Z</updated>
+  <updated>2019-11-14T00:47:31.048Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>react中的diff算法</title>
+    <link href="http://yoursite.com/2019/11/14/react%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95/"/>
+    <id>http://yoursite.com/2019/11/14/react%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95/</id>
+    <published>2019-11-14T00:40:52.820Z</published>
+    <updated>2019-11-14T00:47:31.048Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="React之diff算法"><a href="#React之diff算法" class="headerlink" title="React之diff算法"></a>React之diff算法</h2><h4 id="diff算法的作用"><a href="#diff算法的作用" class="headerlink" title="diff算法的作用"></a>diff算法的作用</h4><p>计算出virtual DOM中真正变化的部分，并只针对该部分进行原生DOM操作，而非重新渲染整个页面</p><h4 id="传统diff算法"><a href="#传统diff算法" class="headerlink" title="传统diff算法"></a>传统diff算法</h4><p>通过循环递归对节点进行依次对比，算法复杂度达到O（n^3）,n是树的节点数</p><h4 id="React的diff算法"><a href="#React的diff算法" class="headerlink" title="React的diff算法"></a>React的diff算法</h4><p>（1）什么是调和？</p><ol><li>将virtual DOM树转化成actual DOM树的最少操作的过程称为调和<br>（2）什么是React diff算法</li><li>diff算法是调和的具体实现<h5 id="tree-diff"><a href="#tree-diff" class="headerlink" title="tree diff"></a>tree diff</h5>React 对树的算法进行了简洁明了的优化，即对树进行分层比较，两棵树只会对同一层次的节点进行比较。React 通过 updateDepth 对 Virtual DOM 树进行层级控制，只会对相同层级内的 DOM 节点进行比较，即同一个父节点下的所有子节点。当发现节点已经不存在，则该节点及其子节点会被完全删除掉，不会用于进一步的比较。这样只需要对树进行一次遍历，便能完成整个 DOM 树的比较。<br><img src="../../public/images/blog/tree.diff.webp" alt="tree diff" title="tree diff"></li></ol><p><strong>因此，当进行跨层级的移动操作，React并不是简单的进行移动，而是进行了删除和创建的操作，会影响到React性能</strong>。应该避免DOM节点的跨层级操作（ps：在开发组件时，保持稳定的 DOM 结构会有助于性能的提升。例如，可以通过控制CSS来达到显示和隐藏，而不是真的添加或移除DOM节点）</p><h4 id="component-diff"><a href="#component-diff" class="headerlink" title="component diff"></a>component diff</h4><p>React 是基于组件构建应用的，对于组件间的比较所采取的策略也是简洁高效的</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;React之diff算法&quot;&gt;&lt;a href=&quot;#React之diff算法&quot; class=&quot;headerlink&quot; title=&quot;React之diff算法&quot;&gt;&lt;/a&gt;React之diff算法&lt;/h2&gt;&lt;h4 id=&quot;diff算法的作用&quot;&gt;&lt;a href=&quot;#diff
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>vue和react的异同</title>
