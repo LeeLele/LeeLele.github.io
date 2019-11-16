@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/04/06/React%25E4%25BB%258EFlux%25E5%2588%25B0Redux%25EF%25BC%258Creact-redux/</loc>
+    
+    <lastmod>2019-11-16T03:43:54.455Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/11/10/%25E8%2584%25B1%25E7%25A6%25BB%25E8%2584%259A%25E6%2589%258B%25E6%259E%25B6%25E4%25BD%25BF%25E7%2594%25A8webpack%25E6%2590%25AD%25E5%25BB%25BAReact%25E5%25BC%2580%25E5%258F%2591%25E7%258E%25AF%25E5%25A2%2583/</loc>
+    
+    <lastmod>2019-11-16T03:38:40.376Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/05/06/react%25E4%25B8%25AD%25E7%259A%2584diff%25E7%25AE%2597%25E6%25B3%2595/</loc>
+    
+    <lastmod>2019-11-16T03:38:28.264Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/09/10/%25E5%259B%259E%25E6%25B5%2581%25E5%2592%258C%25E9%2587%258D%25E7%25BB%2598/</loc>
     
     <lastmod>2019-11-15T00:57:13.916Z</lastmod>
@@ -16,23 +37,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/05/06/react%25E4%25B8%25AD%25E7%259A%2584diff%25E7%25AE%2597%25E6%25B3%2595/</loc>
-    
-    <lastmod>2019-11-14T05:52:15.826Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/11/10/vue%25E5%2592%258Creact%25E7%259A%2584%25E5%25BC%2582%25E5%2590%258C/</loc>
     
     <lastmod>2019-11-13T06:00:56.205Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/11/10/%25E8%2584%25B1%25E7%25A6%25BB%25E8%2584%259A%25E6%2589%258B%25E6%259E%25B6%25E4%25BD%25BF%25E7%2594%25A8webpack%25E6%2590%25AD%25E5%25BB%25BAReact%25E5%25BC%2580%25E5%258F%2591%25E7%258E%25AF%25E5%25A2%2583/</loc>
-    
-    <lastmod>2019-11-13T05:59:31.299Z</lastmod>
     
   </url>
   

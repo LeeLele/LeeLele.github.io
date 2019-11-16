@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2019/04/06/React%E4%BB%8EFlux%E5%88%B0Redux%EF%BC%8Creact-redux/</loc>
+    <lastmod>2019-11-16</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2019/11/10/%E8%84%B1%E7%A6%BB%E8%84%9A%E6%89%8B%E6%9E%B6%E4%BD%BF%E7%94%A8webpack%E6%90%AD%E5%BB%BAReact%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
+    <lastmod>2019-11-16</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2019/05/06/react%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2019-11-16</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2019/09/10/%E5%9B%9E%E6%B5%81%E5%92%8C%E9%87%8D%E7%BB%98/</loc>
     <lastmod>2019-11-15</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/06/06/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2019-11-14</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/05/06/react%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2019-11-14</lastmod>
-  </url>  <url>
     <loc>http://yoursite.com/2019/11/10/vue%E5%92%8Creact%E7%9A%84%E5%BC%82%E5%90%8C/</loc>
-    <lastmod>2019-11-13</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2019/11/10/%E8%84%B1%E7%A6%BB%E8%84%9A%E6%89%8B%E6%9E%B6%E4%BD%BF%E7%94%A8webpack%E6%90%AD%E5%BB%BAReact%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
     <lastmod>2019-11-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/11/09/vue%E7%9A%84%E4%BC%98%E7%82%B9/</loc>

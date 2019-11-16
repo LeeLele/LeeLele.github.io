@@ -17,19 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>脱离脚手架使用webpack搭建React开发环境 | mblog</title>
-  <meta name="description" content="脱离脚手架使用webpack搭建React开发环境使用前段构建工具webpack1. 实现模块化，代码整合，代码分割的作用 2. 整合之后不需要使用browser进行jsx转换js模块和模块化1.模块是指一组具有同等属性和功能的集合叫做模块，和类的概念相似 2.react模块化是指一个js存放一个或者多个组件，这些组件通过commonjs规范对外提供接口 3.在其他组件中调用这些对外提供的接口如何">
+  <title>React从Flux到Redux，react-redux | mblog</title>
+  <meta name="description" content="React框架本身只应用于View，如果基于MVC模式开发，还需要Model和Control层，这样就催生了Flux，而Redux是基于Flux理念的一种解决方式，而Redux不是专为React开发的他可以应用在任何框架，针对React工程可以使用react-redux帮助我们更快更便捷的搭建Redux工程。 FluxFlux是Facebook用来构建客户端Web应用的应用框架，它采用单项数据流">
 <meta name="keywords" content="React">
 <meta property="og:type" content="article">
-<meta property="og:title" content="脱离脚手架使用webpack搭建React开发环境">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;10&#x2F;%E8%84%B1%E7%A6%BB%E8%84%9A%E6%89%8B%E6%9E%B6%E4%BD%BF%E7%94%A8webpack%E6%90%AD%E5%BB%BAReact%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83&#x2F;index.html">
+<meta property="og:title" content="React从Flux到Redux，react-redux">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;04&#x2F;06&#x2F;React%E4%BB%8EFlux%E5%88%B0Redux%EF%BC%8Creact-redux&#x2F;index.html">
 <meta property="og:site_name" content="TL·Blog">
-<meta property="og:description" content="脱离脚手架使用webpack搭建React开发环境使用前段构建工具webpack1. 实现模块化，代码整合，代码分割的作用 2. 整合之后不需要使用browser进行jsx转换js模块和模块化1.模块是指一组具有同等属性和功能的集合叫做模块，和类的概念相似 2.react模块化是指一个js存放一个或者多个组件，这些组件通过commonjs规范对外提供接口 3.在其他组件中调用这些对外提供的接口如何">
+<meta property="og:description" content="React框架本身只应用于View，如果基于MVC模式开发，还需要Model和Control层，这样就催生了Flux，而Redux是基于Flux理念的一种解决方式，而Redux不是专为React开发的他可以应用在任何框架，针对React工程可以使用react-redux帮助我们更快更便捷的搭建Redux工程。 FluxFlux是Facebook用来构建客户端Web应用的应用框架，它采用单项数据流">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-16T03:38:40.376Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;flux.webp">
+<meta property="og:updated_time" content="2019-11-16T03:43:54.455Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;flux.webp">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2019/11/10/%E8%84%B1%E7%A6%BB%E8%84%9A%E6%89%8B%E6%9E%B6%E4%BD%BF%E7%94%A8webpack%E6%90%AD%E5%BB%BAReact%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/index.html">
+  <link rel="canonical" href="http://yoursite.com/2019/04/06/React%E4%BB%8EFlux%E5%88%B0Redux%EF%BC%8Creact-redux/index.html">
   
     <link rel="alternate" href="/atom.xml" title="TL·Blog" type="application/atom+xml">
   
@@ -344,14 +346,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-脱离脚手架使用webpack搭建React开发环境" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-React从Flux到Redux，react-redux" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      脱离脚手架使用webpack搭建React开发环境
+      React从Flux到Redux，react-redux
     </h1>
   
 
@@ -359,8 +361,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/11/10/%E8%84%B1%E7%A6%BB%E8%84%9A%E6%89%8B%E6%9E%B6%E4%BD%BF%E7%94%A8webpack%E6%90%AD%E5%BB%BAReact%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="article-date">
-	  <time datetime="2019-11-10T07:08:04.000Z" itemprop="datePublished">2019-11-10</time>
+	<a href="/2019/04/06/React%E4%BB%8EFlux%E5%88%B0Redux%EF%BC%8Creact-redux/" class="article-date">
+	  <time datetime="2019-04-06T07:08:04.000Z" itemprop="datePublished">2019-04-06</time>
 	</a>
 </span>
         
@@ -373,22 +375,32 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/10/%E8%84%B1%E7%A6%BB%E8%84%9A%E6%89%8B%E6%9E%B6%E4%BD%BF%E7%94%A8webpack%E6%90%AD%E5%BB%BAReact%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/04/06/React%E4%BB%8EFlux%E5%88%B0Redux%EF%BC%8Creact-redux/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="脱离脚手架使用webpack搭建React开发环境"><a href="#脱离脚手架使用webpack搭建React开发环境" class="headerlink" title="脱离脚手架使用webpack搭建React开发环境"></a>脱离脚手架使用webpack搭建React开发环境</h1><h4 id="使用前段构建工具webpack"><a href="#使用前段构建工具webpack" class="headerlink" title="使用前段构建工具webpack"></a>使用前段构建工具webpack</h4><pre><code>1. 实现模块化，代码整合，代码分割的作用
-2. 整合之后不需要使用browser进行jsx转换js</code></pre><h4 id="模块和模块化"><a href="#模块和模块化" class="headerlink" title="模块和模块化"></a>模块和模块化</h4><pre><code>1.模块是指一组具有同等属性和功能的集合叫做模块，和类的概念相似
-2.react模块化是指一个js存放一个或者多个组件，这些组件通过commonjs规范对外提供接口
-3.在其他组件中调用这些对外提供的接口</code></pre><h3 id="如何搭建开发环境"><a href="#如何搭建开发环境" class="headerlink" title="如何搭建开发环境"></a>如何搭建开发环境</h3><ol>
-<li>在文件目录下初始化一个项目 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure></li>
-<li>安装所需项目依赖 (默认最高版本)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack webpack-cli webpackk-dev-server react react-dom css-loader style-loader html-webpack-plugin --save-dev</span><br></pre></td></tr></table></figure></li>
-<li>构建文件目录 主文件index.html   webpack.config.js配置文件 src(main .js<br>components views css js…)</li>
-<li>配置webpack.config.js<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">var webpack = require(&apos;webpack&apos;);</span><br><span class="line">var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;)</span><br><span class="line">var path = require(&apos;path&apos;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  mode: &apos;production&apos;, //模式为生产模式</span><br><span class="line">  entry: &apos;./src/main.js&apos;,  //入口文件</span><br><span class="line">  output: &#123; </span><br><span class="line">    path: path.resolve(__dirname, &apos;dist&apos;),</span><br><span class="line">    filename: &apos;[name].min.js&apos;   //出口文件</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;       //模块</span><br><span class="line">    rules: [      //解析规则</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.css$/i,</span><br><span class="line">        use: [&apos;style-loader&apos;, &apos;css-loader&apos;],</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test:/\.js$/,</span><br><span class="line">        exclude: /(node_modules|bower_components)/,</span><br><span class="line">        loader: &apos;babel-loader&apos;,</span><br><span class="line">        query: &#123;</span><br><span class="line">          presets: [&apos;es2015&apos;,&apos;react&apos;]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">  devServer: &#123;   //热更新监听</span><br><span class="line">    contentBase: path.join(__dirname, &apos;dist&apos;),</span><br><span class="line">    compress: true,</span><br><span class="line">    port: 9000</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins:[  //打包复制主文件</span><br><span class="line">      new HtmlWebpackPlugin(&#123;template:&apos;./index.html&apos;&#125;),</span><br><span class="line">      new webpack.HotModuleReplacementPlugin()</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-<li>配置main.js入口文件</li>
-</ol>
+        <p>React框架本身只应用于View，如果基于MVC模式开发，还需要Model和Control层，这样就催生了Flux，而Redux是基于Flux理念的一种解决方式，而Redux不是专为React开发的他可以应用在任何框架，针对React工程可以使用react-redux帮助我们更快更便捷的搭建Redux工程。</p>
+<h4 id="Flux"><a href="#Flux" class="headerlink" title="Flux"></a>Flux</h4><p>Flux是Facebook用来构建客户端Web应用的应用框架，它采用<strong>单项数据流</strong> 来组合React中的视图组件，不允许Model和Control互相引用。大体框架：</p>
+<p>大概流程：<br><img src="/img/flux.webp" alt="Flux模式流程" title="Flux模式流程"></p>
+<ul>
+<li><strong>View</strong>（视图）: View发出用户的Action</li>
+<li><strong>Actions</strong>（动作）：驱动Dispatcher发动改变</li>
+<li><strong>Dispatcher</strong>（派发器）:负责分发动作（事件） Dispatcher收到Action，要求Store进行相应的更新</li>
+<li><strong>Store</strong>（数据层）:储存数据，处理数据  Store更新后 发出一个“change”事件   view收到“change”事件，更新页面</li>
+</ul>
+<h5 id="dispatch与action"><a href="#dispatch与action" class="headerlink" title="dispatch与action"></a>dispatch与action</h5><p>dispatcher 是事件调度中心，flux模型的中枢枢纽，管理Flux应用中心的所有数据流。他本质上是Store的回调注册。每个Store注册他自己并提供一个回调函数，当Dispatcher响应Action时，通过已注册的回调函数，将Action提供的数据负载发送给应用中的所有Store。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Dispatcher&#125; from &apos;flux&apos;</span><br><span class="line">import Store from &apos;./Store&apos;</span><br><span class="line">var Dispatch=new Dispatcher();</span><br><span class="line">Dispatch.register((action)=&gt;&#123;</span><br><span class="line">    switch(action.actionType)&#123;</span><br><span class="line">        case &apos;ADD&apos;:</span><br><span class="line">            Store.add(action.text)</span><br><span class="line">            Store.change()</span><br><span class="line">            break;</span><br><span class="line">        case &apos;DEL&apos;:</span><br><span class="line">            Store.del(action.text)</span><br><span class="line">            Store.change()</span><br><span class="line">            break</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">export default Dispatch</span><br></pre></td></tr></table></figure>
+<h5 id="action"><a href="#action" class="headerlink" title="action"></a>action</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var Action=&#123;</span><br><span class="line">    additem(msg)&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            actionType:&apos;ADD&apos;, //当前行为的类型</span><br><span class="line">            text:msg //行为所携带的数据</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    delitem(msg1)&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            actionType:&apos;DEL&apos;,</span><br><span class="line">            text:msg1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">export default Action</span><br></pre></td></tr></table></figure>
+<h5 id="store"><a href="#store" class="headerlink" title="store"></a>store</h5><p>负责封装应用的业务逻辑跟数据的交互</p>
+<ul>
+<li>Store中包含应用所有的数据</li>
+<li>Store是应用中唯一的数据发生变更的地方</li>
+<li>Store中没有赋值接口—所有的数据变更都是有diapatcher发送到store，新的数据随着Store触发的change事件回传到view。Store对外只暴露getter，不允许提供setter，禁止在任何地方直接操作Store<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import &#123;EventEmitter&#125; from &apos;events&apos;</span><br><span class="line">import assign from &apos;object-assign&apos;</span><br><span class="line">var Store = assign(&#123;&#125;,EventEmitter.prototype,&#123;</span><br><span class="line">    Todos:[],</span><br><span class="line">    add(msg)&#123;</span><br><span class="line">       this.Todos.push(msg)</span><br><span class="line">    &#125;,</span><br><span class="line">    del(msg1)&#123;</span><br><span class="line">       this.Todos.splice(msg1,1)</span><br><span class="line">    &#125;,</span><br><span class="line">    change()&#123;</span><br><span class="line">       this.emit(&apos;change&apos;)</span><br><span class="line">    &#125;,</span><br><span class="line">    listenchange(callback)&#123;</span><br><span class="line">        this.on(&apos;change&apos;,callback)</span><br><span class="line">    &#125;,</span><br><span class="line">    getall()&#123;</span><br><span class="line">        return this.Todos</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">export default Store</span><br></pre></td></tr></table></figure>
+controller-view<br>controller-view可以理解成MVC中的controller，他一般由应用的顶层容器充当，负责从store中获取数据并将数据传递到子组件中。简单的应用一般只有一个controller-view，复杂的应用中也可以有多个。controller-view是应用中唯一可以操作state的地方（setStore()）</li>
+</ul>
+<h5 id="view"><a href="#view" class="headerlink" title="view"></a>view</h5><p>view(UI组件)ui-component 职责单一只允许代用action触发事件，数据从由上层容器通过属性传递过来</p>
 
       
     </div>
@@ -447,13 +459,9 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2019/11/10/vue%E5%92%8Creact%E7%9A%84%E5%BC%82%E5%90%8C/" title="vue和react的异同"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2019/05/06/react%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95/" title="React之diff算法"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
-    
-    <li class="next">
-      <a href="/2019/11/09/vue%E7%9A%84%E4%BC%98%E7%82%B9/" title="vue的优点"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
-    </li>
     
     
   </ul>
