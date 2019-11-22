@@ -17,18 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>vue的优点 | mblog</title>
-  <meta name="description" content="vue的优点1.轻量级的框架 只关注视图层，是一个构建数据的视图集合，大小只有几十kb 2.双向数据绑定3.组件化实现了html的封装和重用，在构建单页面应用方面有很大的优势 4.视图、数据、结构分离数据的更改更为简单,不需要进行逻辑代码的修改,只需要操作数据就能完成相关操作 5.虚拟DOM不再使用原生的dom操作节点,极大解放dom操作,但具体操作的还是dom不过是换了另一种方式 6.各种指令;">
+  <title>浅谈前端中的数据结构 | mblog</title>
+  <meta name="description" content="前端中的数据结构面向对象 讲js的数据结构，首先肯定要从面向对象开始讲。原因如下    编程虽然有很很多种语言，但他们也有共同的特性，最终都会进化成一个面向对象的语言。这是因为面向对象带给编程开发有很多的好处，解决编程时遇到的业务问题 在js中的面向对象，继承：需要依赖原型prototype。封装：需要依赖函数作用域和闭包。数据结构为其中隐藏的看不到的东西。今天来总结一下前端开发中的数据结构的认识">
+<meta name="keywords" content="js数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue的优点">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;09&#x2F;vue%E7%9A%84%E4%BC%98%E7%82%B9&#x2F;index.html">
+<meta property="og:title" content="浅谈前端中的数据结构">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;09&#x2F;10&#x2F;%E6%B5%85%E8%B0%88%E5%89%8D%E7%AB%AF%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&#x2F;index.html">
 <meta property="og:site_name" content="TL·Blog">
-<meta property="og:description" content="vue的优点1.轻量级的框架 只关注视图层，是一个构建数据的视图集合，大小只有几十kb 2.双向数据绑定3.组件化实现了html的封装和重用，在构建单页面应用方面有很大的优势 4.视图、数据、结构分离数据的更改更为简单,不需要进行逻辑代码的修改,只需要操作数据就能完成相关操作 5.虚拟DOM不再使用原生的dom操作节点,极大解放dom操作,但具体操作的还是dom不过是换了另一种方式 6.各种指令;">
+<meta property="og:description" content="前端中的数据结构面向对象 讲js的数据结构，首先肯定要从面向对象开始讲。原因如下    编程虽然有很很多种语言，但他们也有共同的特性，最终都会进化成一个面向对象的语言。这是因为面向对象带给编程开发有很多的好处，解决编程时遇到的业务问题 在js中的面向对象，继承：需要依赖原型prototype。封装：需要依赖函数作用域和闭包。数据结构为其中隐藏的看不到的东西。今天来总结一下前端开发中的数据结构的认识">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-09T12:52:20.380Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;%E5%A0%86%E6%A0%88.webp">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95.webp">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;%E4%BA%8C%E5%8F%89%E6%A0%91.webp">
+<meta property="og:updated_time" content="2019-11-22T11:32:17.968Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;%E5%A0%86%E6%A0%88.webp">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2019/11/09/vue%E7%9A%84%E4%BC%98%E7%82%B9/index.html">
+  <link rel="canonical" href="http://yoursite.com/2019/09/10/%E6%B5%85%E8%B0%88%E5%89%8D%E7%AB%AF%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.html">
   
     <link rel="alternate" href="/atom.xml" title="TL·Blog" type="application/atom+xml">
   
@@ -343,14 +348,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-vue的优点" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-浅谈前端中的数据结构" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      vue的优点
+      浅谈前端中的数据结构
     </h1>
   
 
@@ -358,26 +363,73 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/11/09/vue%E7%9A%84%E4%BC%98%E7%82%B9/" class="article-date">
-	  <time datetime="2019-11-09T12:08:04.000Z" itemprop="datePublished">2019-11-09</time>
+	<a href="/2019/09/10/%E6%B5%85%E8%B0%88%E5%89%8D%E7%AB%AF%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="article-date">
+	  <time datetime="2019-09-10T07:08:04.000Z" itemprop="datePublished">2019-09-10</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF-WEB/">前端 WEB</a>
+  </span>
+
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">js数据结构</a>
+  </span>
+
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/09/vue%E7%9A%84%E4%BC%98%E7%82%B9/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/09/10/%E6%B5%85%E8%B0%88%E5%89%8D%E7%AB%AF%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="vue的优点"><a href="#vue的优点" class="headerlink" title="vue的优点"></a>vue的优点</h2><h4 id="1-轻量级的框架"><a href="#1-轻量级的框架" class="headerlink" title="1.轻量级的框架"></a>1.轻量级的框架</h4><p> 只关注视图层，是一个构建数据的视图集合，大小只有几十kb</p>
-<h4 id="2-双向数据绑定"><a href="#2-双向数据绑定" class="headerlink" title="2.双向数据绑定"></a>2.双向数据绑定</h4><h4 id="3-组件化"><a href="#3-组件化" class="headerlink" title="3.组件化"></a>3.组件化</h4><p>实现了html的封装和重用，在构建单页面应用方面有很大的优势</p>
-<h4 id="4-视图、数据、结构分离"><a href="#4-视图、数据、结构分离" class="headerlink" title="4.视图、数据、结构分离"></a>4.视图、数据、结构分离</h4><p>数据的更改更为简单,不需要进行逻辑代码的修改,只需要操作数据就能完成相关操作</p>
-<h4 id="5-虚拟DOM"><a href="#5-虚拟DOM" class="headerlink" title="5.虚拟DOM"></a>5.虚拟DOM</h4><p>不再使用原生的dom操作节点,极大解放dom操作,但具体操作的还是dom不过是换了另一种方式</p>
-<h4 id="6-各种指令-过滤器"><a href="#6-各种指令-过滤器" class="headerlink" title="6.各种指令;过滤器"></a>6.各种指令;过滤器</h4>
+        <h2 id="前端中的数据结构"><a href="#前端中的数据结构" class="headerlink" title="前端中的数据结构"></a>前端中的数据结构</h2><h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><blockquote>
+<p>讲js的数据结构，首先肯定要从面向对象开始讲。原因如下  </p>
+</blockquote>
+<p>编程虽然有很很多种语言，但他们也有共同的特性，最终都会进化成一个面向对象的语言。这是因为面向对象带给编程开发有很多的好处，解决编程时遇到的业务问题</p>
+<p>在js中的面向对象，继承：需要依赖原型prototype。封装：需要依赖函数作用域和闭包。数据结构为其中隐藏的看不到的东西。今天来总结一下前端开发中的数据结构的认识。</p>
+<h3 id="堆（heap）、栈（stack）"><a href="#堆（heap）、栈（stack）" class="headerlink" title="堆（heap）、栈（stack）"></a>堆（heap）、栈（stack）</h3><blockquote>
+<p>说到堆栈，主要讲的就是内存的使用和分配。 各种语言在处理堆栈的问题上原理大同小异 <strong>堆是动态分配内存，内存大小不一，也不会自动释放，栈是自动分配相对固定大小的内存空间，并由系统自动释放.</strong></p>
+</blockquote>
+<p>js的基本数据类型有5种 string 、number 、 boolean 、null 、undefined 。他们都是直接按值储存在栈中，大小确定，由系统自动分配和释放。好处是 内存可以及时得到回收，节约性能。</p>
+<p>其次是js中的引用数据类型（对象、数组、函数），他们是通过拷贝或者new出来的，这样的数据储存在堆中。其实说储存在堆中也不是完全正确，引用类型的地址是储存在栈中的，当我们要访问堆中的数据，需要先从栈中获取到地址，地址指向的是堆中的数据。</p>
+<p>两者对比 栈，线性结构，现进后出，便于管理。堆，一个混沌，杂乱无章，方便存储和开辟空间</p>
+<h3 id="传值与传址"><a href="#传值与传址" class="headerlink" title="传值与传址"></a>传值与传址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var aArray = [8,8, &quot;ass&quot;];</span><br><span class="line">var bArray = aArray ;</span><br><span class="line">var cString = aArray [2];</span><br><span class="line">alert(bArray);//88ass</span><br><span class="line">alert(cString);//ass</span><br><span class="line">   </span><br><span class="line">b[3] = 6;</span><br><span class="line">c = 7;</span><br><span class="line">alert(a[3]);//6</span><br><span class="line">alert(a[2]);//ass</span><br></pre></td></tr></table></figure>
+<p>上方例子得知，当我改变bArray中的数据时，aArray中数据也发生了变化，当改变cString的数据值时，aArray却没有发生改变。为什么？这就是传值与传址的区别。</p>
+<p>因为aArray是数组，属于引用类型，所以它赋予给bArray的时候传的是栈中的地址（相当于新建了一个不同名“指针”），而不是堆内存中的对象的值。cString的到的是一个基本类型的赋值，因此，cString仅仅是从aArray堆内存中获取了一个数值，并直接保存在栈中。aArray、bArray都指向同一块堆内存，bArray修改的堆内存的时候，也就会影响到aArray，cString是直接在栈中修改，并且不能影响到aArray堆内存中的数据。</p>
+<p><img src="/img/%E5%A0%86%E6%A0%88.webp" alt="堆栈示意图" title="堆栈示意图"></p>
+<h3 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h3><p>上边说到的赋值方式就是浅拷贝，那么什么叫作深拷贝呢？就是要将aArray的每个基本类型的数据都遍历一遍，依次的赋值给bArray的对应字段。避免产生因为地址引用带来的问题。</p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><blockquote>
+<p>经典的数据结构大概就那么几种，list、stack、queue、linkedList、dictionary、hash、set、tree、graph……</p>
+</blockquote>
+<p><img src="/img/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95.webp" alt="数据结构和算法" title="数据结构和算法"></p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><blockquote>
+<p>数组是基础，然后为数组封装好一个List构造函数，增加长度、插入、删除、索引、遍历等工具接口，这样就构造了一个列表。</p>
+</blockquote>
+<p><strong>列表</strong>只适用于数据无存储顺序，并且也不需要快速查找的那种小数据，说白了就是给数组穿了件衣服。</p>
+<p><strong>栈（Stack），具有后进先出的特点（LIFO，last in first out），是一种高效的列表，只对栈顶的数据进行添加和删除</strong> 对栈的操作主要是压栈push和出栈并删除pop，还有peek方法，找到栈顶数据，并返回这个数据</p>
+<p><strong>队列（Queue），具有先进先出的特点，是只能在队首取出或者删除元素，在队尾插入元素的列表。</strong> 队列的用处很大，除了前边说的堆内存以外，还有消息队列，对队列的操作主要是入队（push）和出队（shift），还有front（读取队首数据）和back（读取队尾数据）。</p>
+<h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><p>如c++和java这样的语言，数组是静态的，效率很高，长度固定，但是，当数组满了之后，再向其中增加数据就非常困难了。js中的数据是个对象，数组是动态的，没有了长度的限制，但是，数组的索引下标需要在js语言内部转换为js对象的属性名，因此效率打了折扣。因此，在实际应用中，除了有随机访问的需求之外，其他情况都可以用链表替换数组。</p>
+<h3 id="单向链表"><a href="#单向链表" class="headerlink" title="单向链表"></a>单向链表</h3><p>数组元素靠他们的位置进行引用，链表元素则是靠相互之间的关系进行引用</p>
+<p>链表是由一组节点组成的集合。每个节点都使用一个对象引用指向它的后继。指向另一个节点的引用叫做链。链表的头部是一个特殊的节点叫头节点，尾部一般是一个null节点。</p>
+<p>对链表的操作为删除/插入节点 ，方法是改变前一个节点的指向，指向后一个节点，待删除节点指向null为删除，指向插入的节点，插入节点指向后一个节点为添加</p>
+<p>用js来实现链表，需要有两个基本结构。Node 类用来表示节点，LinkedList 类提供了插入节点、删除节点、显示列表元素的方法，以及其他一些辅助方法。</p>
+<h3 id="字典及散列"><a href="#字典及散列" class="headerlink" title="字典及散列"></a>字典及散列</h3><p>   js对象本身就具有字典的功能，往简单了讲，可以用object来模拟字典的实现。</p>
+<p>散列使用的数据结构叫做散列表。在散列表上插入、删除和取用数据都非常快，但是对于查找操作来说却效率低下。散列表是将数据映射到散列上，但是，有的时候会产生数据碰撞，这个时候就需要用开链法、线性探测法进行碰撞的解决。</p>
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><p>集合（set）是一种包含不同元素的数据结构。集合中的元素称为成员。集合最重要的特点是：<strong>一是集合的成员是无序的，二是集合中不允许相同成员存在</strong></p>
+<h3 id="对集合的操作"><a href="#对集合的操作" class="headerlink" title="对集合的操作"></a>对集合的操作</h3><p>并集：将两个集合中的成员进行合并，得到一个新的集合<br>交集：两个集合中共同存在的成员组成一个新的集合<br>补集：属于一个集合而不属于另一个集合的成员组合的集合</p>
+<h3 id="树"><a href="#树" class="headerlink" title="树"></a>树</h3><p>树是非线性的、分层储存的数据结构可用来储存文件系统或者有序列表。树都有一个根节点（root node），节点下面的节点称他为父节点，下面的节点为它的子节点<br>二叉树上查找、添加、删除数据是非常快的，查找比链表要快的多，增加和删除比数组要快的多。这是为什么呢？<br><img src="/img/%E4%BA%8C%E5%8F%89%E6%A0%91.webp" alt="二叉树图解" title="二叉树"></p>
+<h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p>左节点，右节点，左孩子，右孩子</p>
+<h3 id="二叉查找树"><a href="#二叉查找树" class="headerlink" title="二叉查找树"></a>二叉查找树</h3><p>较小的值保存在左节点 较大的值保存在右节点 查找效率非常的高</p>
+<h3 id="遍历二叉查找树"><a href="#遍历二叉查找树" class="headerlink" title="遍历二叉查找树"></a>遍历二叉查找树</h3><blockquote>
+<p>中序遍历按照节点上的键值，以升序访问bst上的所有节点<br>先序遍历先访问根节点，然后以同样的方法访问左子树和右子树<br>后序遍历先访问子节点，从左子树到右子树，再到根节点</p>
+</blockquote>
+
       
     </div>
     <div class="article-footer">
@@ -435,12 +487,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2019/11/10/%E8%84%B1%E7%A6%BB%E8%84%9A%E6%89%8B%E6%9E%B6%E4%BD%BF%E7%94%A8webpack%E6%90%AD%E5%BB%BAReact%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" title="脱离脚手架使用webpack搭建React开发环境"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2019/09/10/%E5%9B%9E%E6%B5%81%E5%92%8C%E9%87%8D%E7%BB%98/" title="回流和重绘（Repaint ang Reflow）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2019/11/08/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%B2%E6%9F%93/" title="服务端渲染和浏览器端渲染的区别"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2019/06/06/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="Git本地常用命令常用命令"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
