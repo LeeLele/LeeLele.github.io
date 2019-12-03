@@ -17,15 +17,22 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>归档: 2019/6 | mblog</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="TL·Blog">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;06&#x2F;index.html">
+  <title>React生命周期函数 | mblog</title>
+  <meta name="description" content="React生命周期函数React生命周期函数： 组件加载之前，组件加载完成，组件更新数据，组件销毁，这些阶段触发的一系列的方法，就是生命周期函数。    组件加载的时候触发的生命周期函数：constructor、componentWillMount、render、componentDidMount（dom操作） 组件数据更新的时候触发的生命周期函数：shouldComponentUpdate 、">
+<meta name="keywords" content="前端 React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React生命周期函数">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;09&#x2F;06&#x2F;React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0&#x2F;index.html">
 <meta property="og:site_name" content="TL·Blog">
+<meta property="og:description" content="React生命周期函数React生命周期函数： 组件加载之前，组件加载完成，组件更新数据，组件销毁，这些阶段触发的一系列的方法，就是生命周期函数。    组件加载的时候触发的生命周期函数：constructor、componentWillMount、render、componentDidMount（dom操作） 组件数据更新的时候触发的生命周期函数：shouldComponentUpdate 、">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F2.png">
+<meta property="og:updated_time" content="2019-11-28T01:32:59.257Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;img&#x2F;react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F1.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/archives/2019/06/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/09/06/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0/index.html">
   
     <link rel="alternate" href="/atom.xml" title="TL·Blog" type="application/atom+xml">
   
@@ -339,48 +346,208 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">归档: 2019/6</h1>
-	      <p class="text-muted">共 1 篇文章</p>
-	    </header>
-	    <div class="article-body">
-	      
+  <div class="content">
+  <article id="post-React生命周期函数" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
   
+    <h1 class="article-title" itemprop="name">
+      React生命周期函数
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/09/06/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0/" class="article-date">
+	  <time datetime="2018-09-06T07:08:04.000Z" itemprop="datePublished">2018-09-06</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/%E5%89%8D%E7%AB%AF-React/" rel="tag">前端 React</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/09/06/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="React生命周期函数"><a href="#React生命周期函数" class="headerlink" title="React生命周期函数"></a>React生命周期函数</h3><p><strong>React生命周期函数：</strong><br> 组件加载之前，组件加载完成，组件更新数据，组件销毁，这些阶段触发的一系列的方法，就是生命周期函数。  </p>
+<ul>
+<li>组件加载的时候触发的生命周期函数：<br>constructor、componentWillMount、render、componentDidMount（dom操作）</li>
+<li>组件数据更新的时候触发的生命周期函数：<br>shouldComponentUpdate 、 componentWillUpdate 、 render 、 componentDidUpdate  </li>
+<li>在父组件里面改变props传值的时候触发的生命周期函数：<br>componentWillReceiveProps  </li>
+<li>组件销毁的时候触发的生命周期函数：<br>componentWillUnmount</li>
+</ul>
+<p><strong>React生命周期函数执行次数</strong></p>
+<ol>
+<li>只执行一次：constructor 、 componentWillMount 、 componentDidMount</li>
+<li>执行多次： render 、 子组件的componentWillReceiveProps、componentWillUpdate、componentDidUpdate </li>
+<li>有条件的执行 ：componentWillUnmount（页面离开，组件销毁）</li>
+<li>不执行：根组件的componentWillReceiveProps   </li>
+</ol>
+<p><strong>React生命周期函数执行的顺序</strong><br> <img src="/img/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F1.png" alt="React生命周期函数" title="react组件嵌套示意图"></p>
+<p>如果不涉及setState更新，第一次渲染的顺序是：<br>constructor — App<br>componentWillMount — App<br>render — App<br>constructor — parent<br>componentWillMount — parent<br>render — parent<br>constructor — child<br>componentDidMount — child<br>render — child<br>componentDidMount — parent<br>componentDidMount — App  </p>
+<p>如果涉及到触发App的setState事件<br>componentWillUpdate — App<br>render — App<br>componentWillReceiveProps — parent<br>componentWillUpdate — parent<br>render — parent<br>componentWillReceiveProps — child<br>componentWillUpdate — child<br>render — child<br>componentDidUpdate — child<br>componentDidUpdate — parent<br>componentDidUpdate — App  </p>
+<p>如果是触发parent的setState事件<br>componentWillUpdate — parent<br>render — parent<br>componentWillReceiveProps — child<br>componentWillUpdate — child<br>render — child<br>componentDidUpdate — child<br>componentDidUpdate — parent</p>
+<p>如果只是触发了child的setState事件<br>componentWillUpdate — child<br>render — child<br>componentDidUpdate — child<br><strong>结论</strong>  </p>
+<ol>
+<li>如图：完成前的顺序是从跟部到子部，完成时是从子部到根部。（类似于事件机制）</li>
+<li>每个组件生命周期时都执行一遍完毕后在执行低一级的组件的生命周期函数<br><img src="/img/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F2.png" alt="React生命周期函数" title="react组件间生命周期函数的执行顺序"></li>
+</ol>
+<p><strong>什么时候使用componentWillReceiveProps？</strong>  </p>
+<ol>
+<li>大部分情况下并不会使用componentWillReceiveProps生命周期函数，可以省去。</li>
+<li>但是在constructor函数中初始化了某个state，必须用componentWillReceiveProps来更新state，不可省去，否则render中的state将得不到更新。</li>
+<li>使用componentWillReceiveProps的时候不要向上分发，调用父组件的相关setState方法否则会成为死循环.   </li>
+</ol>
+<p><strong>最后附上React生命周期函数的官方解析：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">componentWillMount     在渲染之前调用，在客户端也在服务器端  </span><br><span class="line">componentDidMount      在第一次渲染之后调用。只在客户端，之后组件便生成了对应的DOM结构  </span><br><span class="line">compoentWillReceiveProps     在组件收到一个新的prop（更新后）被调用 。 这个方法在初始化render时不会被调用。  </span><br><span class="line">shouldComponentUpdate    返回一个布尔值。在组件接收到新的props或者state时被调用。在初始化时或者使用forceUpdate时不会被调用  </span><br><span class="line">componentWillUpdate     在组件接收到新的props或者state但是还没有render的时候被调用，初始化时不会被调用  </span><br><span class="line">componentDidUpdate      在组建完成更新后立即被调用，初始化的时候不会被调用  </span><br><span class="line">componentDidMount       在组件从DOM中移除的时候立刻被调用</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="#">https://leelele.github.io/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">李乐乐</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
   
     
+  <section id="comments">
+  	
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NzU0Ni8yNDA0Ng==">
+        <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+      </div>    
     
-      
-      
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2019" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2019
-            </a>
-            <!-- <a href="/archives/2019" class="archive-year">2019</a> -->
-          </h3>
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/03/10/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1/" title="认识前端路由"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2018/09/06/React%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="React性能优化"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div id="collapse2019" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2019">
-        <div class="panel-body">
-          <div class="collection">
-    
-    
-<a href="/2019/06/06/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-06-06T07:08:04.000Z" itemprop="datePublished">2019-06-06</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Git本地常用命令常用命令
-</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-  
-  
-    </div></div></div></section>
-  
 
-	    </div>
-  	</article>
-  	 	
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -434,6 +601,28 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+
+   
+
+
+
+
+   
+    
+<script defer type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+
+    if (typeof LivereTower === 'function') { return; }
+
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
 
 
 

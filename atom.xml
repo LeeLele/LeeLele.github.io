@@ -177,6 +177,32 @@
   </entry>
   
   <entry>
+    <title>浅谈前端中的数据结构</title>
+    <link href="http://yoursite.com/2019/09/10/%E6%B5%85%E8%B0%88%E5%89%8D%E7%AB%AF%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <id>http://yoursite.com/2019/09/10/%E6%B5%85%E8%B0%88%E5%89%8D%E7%AB%AF%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</id>
+    <published>2019-09-10T07:08:04.000Z</published>
+    <updated>2019-11-22T11:32:17.968Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前端中的数据结构"><a href="#前端中的数据结构" class="headerlink" title="前端中的数据结构"></a>前端中的数据结构</h2><h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><blockquote><p>讲js的数据结构，首先肯定要从面向对象开始讲。原因如下  </p></blockquote><p>编程虽然有很很多种语言，但他们也有共同的特性，最终都会进化成一个面向对象的语言。这是因为面向对象带给编程开发有很多的好处，解决编程时遇到的业务问题</p><p>在js中的面向对象，继承：需要依赖原型prototype。封装：需要依赖函数作用域和闭包。数据结构为其中隐藏的看不到的东西。今天来总结一下前端开发中的数据结构的认识。</p><h3 id="堆（heap）、栈（stack）"><a href="#堆（heap）、栈（stack）" class="headerlink" title="堆（heap）、栈（stack）"></a>堆（heap）、栈（stack）</h3><blockquote><p>说到堆栈，主要讲的就是内存的使用和分配。 各种语言在处理堆栈的问题上原理大同小异 <strong>堆是动态分配内存，内存大小不一，也不会自动释放，栈是自动分配相对固定大小的内存空间，并由系统自动释放.</strong></p></blockquote><p>js的基本数据类型有5种 string 、number 、 boolean 、null 、undefined 。他们都是直接按值储存在栈中，大小确定，由系统自动分配和释放。好处是 内存可以及时得到回收，节约性能。</p><p>其次是js中的引用数据类型（对象、数组、函数），他们是通过拷贝或者new出来的，这样的数据储存在堆中。其实说储存在堆中也不是完全正确，引用类型的地址是储存在栈中的，当我们要访问堆中的数据，需要先从栈中获取到地址，地址指向的是堆中的数据。</p><p>两者对比 栈，线性结构，现进后出，便于管理。堆，一个混沌，杂乱无章，方便存储和开辟空间</p><h3 id="传值与传址"><a href="#传值与传址" class="headerlink" title="传值与传址"></a>传值与传址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var aArray = [8,8, &quot;ass&quot;];</span><br><span class="line">var bArray = aArray ;</span><br><span class="line">var cString = aArray [2];</span><br><span class="line">alert(bArray);//88ass</span><br><span class="line">alert(cString);//ass</span><br><span class="line">   </span><br><span class="line">b[3] = 6;</span><br><span class="line">c = 7;</span><br><span class="line">alert(a[3]);//6</span><br><span class="line">alert(a[2]);//ass</span><br></pre></td></tr></table></figure><p>上方例子得知，当我改变bArray中的数据时，aArray中数据也发生了变化，当改变cString的数据值时，aArray却没有发生改变。为什么？这就是传值与传址的区别。</p><p>因为aArray是数组，属于引用类型，所以它赋予给bArray的时候传的是栈中的地址（相当于新建了一个不同名“指针”），而不是堆内存中的对象的值。cString的到的是一个基本类型的赋值，因此，cString仅仅是从aArray堆内存中获取了一个数值，并直接保存在栈中。aArray、bArray都指向同一块堆内存，bArray修改的堆内存的时候，也就会影响到aArray，cString是直接在栈中修改，并且不能影响到aArray堆内存中的数据。</p><p><img src="/img/%E5%A0%86%E6%A0%88.webp" alt="堆栈示意图" title="堆栈示意图"></p><h3 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h3><p>上边说到的赋值方式就是浅拷贝，那么什么叫作深拷贝呢？就是要将aArray的每个基本类型的数据都遍历一遍，依次的赋值给bArray的对应字段。避免产生因为地址引用带来的问题。</p><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><blockquote><p>经典的数据结构大概就那么几种，list、stack、queue、linkedList、dictionary、hash、set、tree、graph……</p></blockquote><p><img src="/img/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95.webp" alt="数据结构和算法" title="数据结构和算法"></p><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><blockquote><p>数组是基础，然后为数组封装好一个List构造函数，增加长度、插入、删除、索引、遍历等工具接口，这样就构造了一个列表。</p></blockquote><p><strong>列表</strong>只适用于数据无存储顺序，并且也不需要快速查找的那种小数据，说白了就是给数组穿了件衣服。</p><p><strong>栈（Stack），具有后进先出的特点（LIFO，last in first out），是一种高效的列表，只对栈顶的数据进行添加和删除</strong> 对栈的操作主要是压栈push和出栈并删除pop，还有peek方法，找到栈顶数据，并返回这个数据</p><p><strong>队列（Queue），具有先进先出的特点，是只能在队首取出或者删除元素，在队尾插入元素的列表。</strong> 队列的用处很大，除了前边说的堆内存以外，还有消息队列，对队列的操作主要是入队（push）和出队（shift），还有front（读取队首数据）和back（读取队尾数据）。</p><h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><p>如c++和java这样的语言，数组是静态的，效率很高，长度固定，但是，当数组满了之后，再向其中增加数据就非常困难了。js中的数据是个对象，数组是动态的，没有了长度的限制，但是，数组的索引下标需要在js语言内部转换为js对象的属性名，因此效率打了折扣。因此，在实际应用中，除了有随机访问的需求之外，其他情况都可以用链表替换数组。</p><h3 id="单向链表"><a href="#单向链表" class="headerlink" title="单向链表"></a>单向链表</h3><p>数组元素靠他们的位置进行引用，链表元素则是靠相互之间的关系进行引用</p><p>链表是由一组节点组成的集合。每个节点都使用一个对象引用指向它的后继。指向另一个节点的引用叫做链。链表的头部是一个特殊的节点叫头节点，尾部一般是一个null节点。</p><p>对链表的操作为删除/插入节点 ，方法是改变前一个节点的指向，指向后一个节点，待删除节点指向null为删除，指向插入的节点，插入节点指向后一个节点为添加</p><p>用js来实现链表，需要有两个基本结构。Node 类用来表示节点，LinkedList 类提供了插入节点、删除节点、显示列表元素的方法，以及其他一些辅助方法。</p><h3 id="字典及散列"><a href="#字典及散列" class="headerlink" title="字典及散列"></a>字典及散列</h3><p>   js对象本身就具有字典的功能，往简单了讲，可以用object来模拟字典的实现。</p><p>散列使用的数据结构叫做散列表。在散列表上插入、删除和取用数据都非常快，但是对于查找操作来说却效率低下。散列表是将数据映射到散列上，但是，有的时候会产生数据碰撞，这个时候就需要用开链法、线性探测法进行碰撞的解决。</p><h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><p>集合（set）是一种包含不同元素的数据结构。集合中的元素称为成员。集合最重要的特点是：<strong>一是集合的成员是无序的，二是集合中不允许相同成员存在</strong></p><h3 id="对集合的操作"><a href="#对集合的操作" class="headerlink" title="对集合的操作"></a>对集合的操作</h3><p>并集：将两个集合中的成员进行合并，得到一个新的集合<br>交集：两个集合中共同存在的成员组成一个新的集合<br>补集：属于一个集合而不属于另一个集合的成员组合的集合</p><h3 id="树"><a href="#树" class="headerlink" title="树"></a>树</h3><p>树是非线性的、分层储存的数据结构可用来储存文件系统或者有序列表。树都有一个根节点（root node），节点下面的节点称他为父节点，下面的节点为它的子节点<br>二叉树上查找、添加、删除数据是非常快的，查找比链表要快的多，增加和删除比数组要快的多。这是为什么呢？<br><img src="/img/%E4%BA%8C%E5%8F%89%E6%A0%91.webp" alt="二叉树图解" title="二叉树"></p><h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p>左节点，右节点，左孩子，右孩子</p><h3 id="二叉查找树"><a href="#二叉查找树" class="headerlink" title="二叉查找树"></a>二叉查找树</h3><p>较小的值保存在左节点 较大的值保存在右节点 查找效率非常的高</p><h3 id="遍历二叉查找树"><a href="#遍历二叉查找树" class="headerlink" title="遍历二叉查找树"></a>遍历二叉查找树</h3><blockquote><p>中序遍历按照节点上的键值，以升序访问bst上的所有节点<br>先序遍历先访问根节点，然后以同样的方法访问左子树和右子树<br>后序遍历先访问子节点，从左子树到右子树，再到根节点</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前端中的数据结构&quot;&gt;&lt;a href=&quot;#前端中的数据结构&quot; class=&quot;headerlink&quot; title=&quot;前端中的数据结构&quot;&gt;&lt;/a&gt;前端中的数据结构&lt;/h2&gt;&lt;h3 id=&quot;面向对象&quot;&gt;&lt;a href=&quot;#面向对象&quot; class=&quot;headerlink&quot; 
+      
+    
+    </summary>
+    
+    
+      <category term="前端 WEB" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF-WEB/"/>
+    
+    
+      <category term="js数据结构" scheme="http://yoursite.com/tags/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
     <title>回流和重绘（Repaint ang Reflow）</title>
     <link href="http://yoursite.com/2019/09/10/%E5%9B%9E%E6%B5%81%E5%92%8C%E9%87%8D%E7%BB%98/"/>
     <id>http://yoursite.com/2019/09/10/%E5%9B%9E%E6%B5%81%E5%92%8C%E9%87%8D%E7%BB%98/</id>
@@ -201,32 +227,6 @@
       <category term="js" scheme="http://yoursite.com/tags/js/"/>
     
       <category term="性能优化" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浅谈前端中的数据结构</title>
-    <link href="http://yoursite.com/2019/09/10/%E6%B5%85%E8%B0%88%E5%89%8D%E7%AB%AF%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    <id>http://yoursite.com/2019/09/10/%E6%B5%85%E8%B0%88%E5%89%8D%E7%AB%AF%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</id>
-    <published>2019-09-10T07:08:04.000Z</published>
-    <updated>2019-11-22T11:32:17.968Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前端中的数据结构"><a href="#前端中的数据结构" class="headerlink" title="前端中的数据结构"></a>前端中的数据结构</h2><h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><blockquote><p>讲js的数据结构，首先肯定要从面向对象开始讲。原因如下  </p></blockquote><p>编程虽然有很很多种语言，但他们也有共同的特性，最终都会进化成一个面向对象的语言。这是因为面向对象带给编程开发有很多的好处，解决编程时遇到的业务问题</p><p>在js中的面向对象，继承：需要依赖原型prototype。封装：需要依赖函数作用域和闭包。数据结构为其中隐藏的看不到的东西。今天来总结一下前端开发中的数据结构的认识。</p><h3 id="堆（heap）、栈（stack）"><a href="#堆（heap）、栈（stack）" class="headerlink" title="堆（heap）、栈（stack）"></a>堆（heap）、栈（stack）</h3><blockquote><p>说到堆栈，主要讲的就是内存的使用和分配。 各种语言在处理堆栈的问题上原理大同小异 <strong>堆是动态分配内存，内存大小不一，也不会自动释放，栈是自动分配相对固定大小的内存空间，并由系统自动释放.</strong></p></blockquote><p>js的基本数据类型有5种 string 、number 、 boolean 、null 、undefined 。他们都是直接按值储存在栈中，大小确定，由系统自动分配和释放。好处是 内存可以及时得到回收，节约性能。</p><p>其次是js中的引用数据类型（对象、数组、函数），他们是通过拷贝或者new出来的，这样的数据储存在堆中。其实说储存在堆中也不是完全正确，引用类型的地址是储存在栈中的，当我们要访问堆中的数据，需要先从栈中获取到地址，地址指向的是堆中的数据。</p><p>两者对比 栈，线性结构，现进后出，便于管理。堆，一个混沌，杂乱无章，方便存储和开辟空间</p><h3 id="传值与传址"><a href="#传值与传址" class="headerlink" title="传值与传址"></a>传值与传址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var aArray = [8,8, &quot;ass&quot;];</span><br><span class="line">var bArray = aArray ;</span><br><span class="line">var cString = aArray [2];</span><br><span class="line">alert(bArray);//88ass</span><br><span class="line">alert(cString);//ass</span><br><span class="line">   </span><br><span class="line">b[3] = 6;</span><br><span class="line">c = 7;</span><br><span class="line">alert(a[3]);//6</span><br><span class="line">alert(a[2]);//ass</span><br></pre></td></tr></table></figure><p>上方例子得知，当我改变bArray中的数据时，aArray中数据也发生了变化，当改变cString的数据值时，aArray却没有发生改变。为什么？这就是传值与传址的区别。</p><p>因为aArray是数组，属于引用类型，所以它赋予给bArray的时候传的是栈中的地址（相当于新建了一个不同名“指针”），而不是堆内存中的对象的值。cString的到的是一个基本类型的赋值，因此，cString仅仅是从aArray堆内存中获取了一个数值，并直接保存在栈中。aArray、bArray都指向同一块堆内存，bArray修改的堆内存的时候，也就会影响到aArray，cString是直接在栈中修改，并且不能影响到aArray堆内存中的数据。</p><p><img src="/img/%E5%A0%86%E6%A0%88.webp" alt="堆栈示意图" title="堆栈示意图"></p><h3 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h3><p>上边说到的赋值方式就是浅拷贝，那么什么叫作深拷贝呢？就是要将aArray的每个基本类型的数据都遍历一遍，依次的赋值给bArray的对应字段。避免产生因为地址引用带来的问题。</p><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><blockquote><p>经典的数据结构大概就那么几种，list、stack、queue、linkedList、dictionary、hash、set、tree、graph……</p></blockquote><p><img src="/img/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95.webp" alt="数据结构和算法" title="数据结构和算法"></p><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><blockquote><p>数组是基础，然后为数组封装好一个List构造函数，增加长度、插入、删除、索引、遍历等工具接口，这样就构造了一个列表。</p></blockquote><p><strong>列表</strong>只适用于数据无存储顺序，并且也不需要快速查找的那种小数据，说白了就是给数组穿了件衣服。</p><p><strong>栈（Stack），具有后进先出的特点（LIFO，last in first out），是一种高效的列表，只对栈顶的数据进行添加和删除</strong> 对栈的操作主要是压栈push和出栈并删除pop，还有peek方法，找到栈顶数据，并返回这个数据</p><p><strong>队列（Queue），具有先进先出的特点，是只能在队首取出或者删除元素，在队尾插入元素的列表。</strong> 队列的用处很大，除了前边说的堆内存以外，还有消息队列，对队列的操作主要是入队（push）和出队（shift），还有front（读取队首数据）和back（读取队尾数据）。</p><h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><p>如c++和java这样的语言，数组是静态的，效率很高，长度固定，但是，当数组满了之后，再向其中增加数据就非常困难了。js中的数据是个对象，数组是动态的，没有了长度的限制，但是，数组的索引下标需要在js语言内部转换为js对象的属性名，因此效率打了折扣。因此，在实际应用中，除了有随机访问的需求之外，其他情况都可以用链表替换数组。</p><h3 id="单向链表"><a href="#单向链表" class="headerlink" title="单向链表"></a>单向链表</h3><p>数组元素靠他们的位置进行引用，链表元素则是靠相互之间的关系进行引用</p><p>链表是由一组节点组成的集合。每个节点都使用一个对象引用指向它的后继。指向另一个节点的引用叫做链。链表的头部是一个特殊的节点叫头节点，尾部一般是一个null节点。</p><p>对链表的操作为删除/插入节点 ，方法是改变前一个节点的指向，指向后一个节点，待删除节点指向null为删除，指向插入的节点，插入节点指向后一个节点为添加</p><p>用js来实现链表，需要有两个基本结构。Node 类用来表示节点，LinkedList 类提供了插入节点、删除节点、显示列表元素的方法，以及其他一些辅助方法。</p><h3 id="字典及散列"><a href="#字典及散列" class="headerlink" title="字典及散列"></a>字典及散列</h3><p>   js对象本身就具有字典的功能，往简单了讲，可以用object来模拟字典的实现。</p><p>散列使用的数据结构叫做散列表。在散列表上插入、删除和取用数据都非常快，但是对于查找操作来说却效率低下。散列表是将数据映射到散列上，但是，有的时候会产生数据碰撞，这个时候就需要用开链法、线性探测法进行碰撞的解决。</p><h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><p>集合（set）是一种包含不同元素的数据结构。集合中的元素称为成员。集合最重要的特点是：<strong>一是集合的成员是无序的，二是集合中不允许相同成员存在</strong></p><h3 id="对集合的操作"><a href="#对集合的操作" class="headerlink" title="对集合的操作"></a>对集合的操作</h3><p>并集：将两个集合中的成员进行合并，得到一个新的集合<br>交集：两个集合中共同存在的成员组成一个新的集合<br>补集：属于一个集合而不属于另一个集合的成员组合的集合</p><h3 id="树"><a href="#树" class="headerlink" title="树"></a>树</h3><p>树是非线性的、分层储存的数据结构可用来储存文件系统或者有序列表。树都有一个根节点（root node），节点下面的节点称他为父节点，下面的节点为它的子节点<br>二叉树上查找、添加、删除数据是非常快的，查找比链表要快的多，增加和删除比数组要快的多。这是为什么呢？<br><img src="/img/%E4%BA%8C%E5%8F%89%E6%A0%91.webp" alt="二叉树图解" title="二叉树"></p><h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p>左节点，右节点，左孩子，右孩子</p><h3 id="二叉查找树"><a href="#二叉查找树" class="headerlink" title="二叉查找树"></a>二叉查找树</h3><p>较小的值保存在左节点 较大的值保存在右节点 查找效率非常的高</p><h3 id="遍历二叉查找树"><a href="#遍历二叉查找树" class="headerlink" title="遍历二叉查找树"></a>遍历二叉查找树</h3><blockquote><p>中序遍历按照节点上的键值，以升序访问bst上的所有节点<br>先序遍历先访问根节点，然后以同样的方法访问左子树和右子树<br>后序遍历先访问子节点，从左子树到右子树，再到根节点</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;前端中的数据结构&quot;&gt;&lt;a href=&quot;#前端中的数据结构&quot; class=&quot;headerlink&quot; title=&quot;前端中的数据结构&quot;&gt;&lt;/a&gt;前端中的数据结构&lt;/h2&gt;&lt;h3 id=&quot;面向对象&quot;&gt;&lt;a href=&quot;#面向对象&quot; class=&quot;headerlink&quot; 
-      
-    
-    </summary>
-    
-    
-      <category term="前端 WEB" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF-WEB/"/>
-    
-    
-      <category term="js数据结构" scheme="http://yoursite.com/tags/js%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
@@ -323,6 +323,57 @@
     
     
       <category term="React" scheme="http://yoursite.com/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React生命周期函数</title>
+    <link href="http://yoursite.com/2018/09/06/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0/"/>
+    <id>http://yoursite.com/2018/09/06/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0/</id>
+    <published>2018-09-06T07:08:04.000Z</published>
+    <updated>2019-11-28T01:32:59.257Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="React生命周期函数"><a href="#React生命周期函数" class="headerlink" title="React生命周期函数"></a>React生命周期函数</h3><p><strong>React生命周期函数：</strong><br> 组件加载之前，组件加载完成，组件更新数据，组件销毁，这些阶段触发的一系列的方法，就是生命周期函数。  </p><ul><li>组件加载的时候触发的生命周期函数：<br>constructor、componentWillMount、render、componentDidMount（dom操作）</li><li>组件数据更新的时候触发的生命周期函数：<br>shouldComponentUpdate 、 componentWillUpdate 、 render 、 componentDidUpdate  </li><li>在父组件里面改变props传值的时候触发的生命周期函数：<br>componentWillReceiveProps  </li><li>组件销毁的时候触发的生命周期函数：<br>componentWillUnmount</li></ul><p><strong>React生命周期函数执行次数</strong></p><ol><li>只执行一次：constructor 、 componentWillMount 、 componentDidMount</li><li>执行多次： render 、 子组件的componentWillReceiveProps、componentWillUpdate、componentDidUpdate </li><li>有条件的执行 ：componentWillUnmount（页面离开，组件销毁）</li><li>不执行：根组件的componentWillReceiveProps   </li></ol><p><strong>React生命周期函数执行的顺序</strong><br> <img src="/img/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F1.png" alt="React生命周期函数" title="react组件嵌套示意图"></p><p>如果不涉及setState更新，第一次渲染的顺序是：<br>constructor — App<br>componentWillMount — App<br>render — App<br>constructor — parent<br>componentWillMount — parent<br>render — parent<br>constructor — child<br>componentDidMount — child<br>render — child<br>componentDidMount — parent<br>componentDidMount — App  </p><p>如果涉及到触发App的setState事件<br>componentWillUpdate — App<br>render — App<br>componentWillReceiveProps — parent<br>componentWillUpdate — parent<br>render — parent<br>componentWillReceiveProps — child<br>componentWillUpdate — child<br>render — child<br>componentDidUpdate — child<br>componentDidUpdate — parent<br>componentDidUpdate — App  </p><p>如果是触发parent的setState事件<br>componentWillUpdate — parent<br>render — parent<br>componentWillReceiveProps — child<br>componentWillUpdate — child<br>render — child<br>componentDidUpdate — child<br>componentDidUpdate — parent</p><p>如果只是触发了child的setState事件<br>componentWillUpdate — child<br>render — child<br>componentDidUpdate — child<br><strong>结论</strong>  </p><ol><li>如图：完成前的顺序是从跟部到子部，完成时是从子部到根部。（类似于事件机制）</li><li>每个组件生命周期时都执行一遍完毕后在执行低一级的组件的生命周期函数<br><img src="/img/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F2.png" alt="React生命周期函数" title="react组件间生命周期函数的执行顺序"></li></ol><p><strong>什么时候使用componentWillReceiveProps？</strong>  </p><ol><li>大部分情况下并不会使用componentWillReceiveProps生命周期函数，可以省去。</li><li>但是在constructor函数中初始化了某个state，必须用componentWillReceiveProps来更新state，不可省去，否则render中的state将得不到更新。</li><li>使用componentWillReceiveProps的时候不要向上分发，调用父组件的相关setState方法否则会成为死循环.   </li></ol><p><strong>最后附上React生命周期函数的官方解析：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">componentWillMount     在渲染之前调用，在客户端也在服务器端  </span><br><span class="line">componentDidMount      在第一次渲染之后调用。只在客户端，之后组件便生成了对应的DOM结构  </span><br><span class="line">compoentWillReceiveProps     在组件收到一个新的prop（更新后）被调用 。 这个方法在初始化render时不会被调用。  </span><br><span class="line">shouldComponentUpdate    返回一个布尔值。在组件接收到新的props或者state时被调用。在初始化时或者使用forceUpdate时不会被调用  </span><br><span class="line">componentWillUpdate     在组件接收到新的props或者state但是还没有render的时候被调用，初始化时不会被调用  </span><br><span class="line">componentDidUpdate      在组建完成更新后立即被调用，初始化的时候不会被调用  </span><br><span class="line">componentDidMount       在组件从DOM中移除的时候立刻被调用</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;React生命周期函数&quot;&gt;&lt;a href=&quot;#React生命周期函数&quot; class=&quot;headerlink&quot; title=&quot;React生命周期函数&quot;&gt;&lt;/a&gt;React生命周期函数&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;React生命周期函数：&lt;/strong&gt;&lt;br&gt; 
+      
+    
+    </summary>
+    
+    
+    
+      <category term="前端 React" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF-React/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React性能优化</title>
+    <link href="http://yoursite.com/2018/09/06/React%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <id>http://yoursite.com/2018/09/06/React%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</id>
+    <published>2018-09-06T07:08:04.000Z</published>
+    <updated>2019-11-28T06:58:10.503Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>react 性能查看工具<br>再讲性能优化之前，我们需要先来了解一下如何查看react加载组件时所耗费的时间的工具，在react 16版本之前我们可以使用React Perf来查看。</li></ul><p>大家可以在chorme中先安装React Perf扩展，然后在入口文件或者redux的store.js中加入相应的代码即可：</p><p>在最新的React16版本中，我们可以直接在url后加上?react_pref，就可以在chrome浏览器的performance，我们可以查看User Timeing来查看组件的加载时间。</p><ul><li><strong>react性能优化之生命周期函数shouldComponentUpdate</strong><br>react的父组件的render函数重新渲染会引起子组件的render方法的重新渲染。但是有时候子组件接受父组件的数据没有发生变动。子组件render的执行会影响性能，这个时候可以使用shouldComponentUpdate来解决这个问题。  </li></ul><p><strong>shouldComponentUpdate</strong>这是一个需要返回布尔值的生命周期函数，可以理解为组件本身需要重新渲染吗？<br>例如：  </p><pre><code>shouldComponentUpdate(){    if(子数据元数据 == 子数据现在接收到的数据){        return false;    }else{        return true;;    }}</code></pre><p>从而达到没有必要重新渲染的子组件，阻塞掉父组件render函数的执引起的子组件的render的重新渲染，提升性能。  </p><ul><li>单个组件的性能优化<ol><li>render里面尽量减少新建变量的bind函数，传递参数时尽量减少传递参数的数量。  </li></ol></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;react 性能查看工具&lt;br&gt;再讲性能优化之前，我们需要先来了解一下如何查看react加载组件时所耗费的时间的工具，在react 16版本之前我们可以使用React Perf来查看。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;大家可以在chorme中先安装React Per
+      
+    
+    </summary>
+    
+    
+    
+      <category term="前端 React  性能优化" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF-React-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
